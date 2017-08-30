@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Settings </span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+<h2 class="page-title">Settings</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN TAB PORTLET-->
+        <div class="portlet light bordered tab_content">
+            <div class="portlet-title tabbable-line custom_title">
+                <div class="caption">
+                    <span class="caption-subject font-dark bold uppercase">Profile Account</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#Personal_Info" data-toggle="tab">Personal Info </a>
+                    </li>
+                    <li>
+                        <a href="#Change_Password" data-toggle="tab">Change Password</a>
+                    </li>
+                    <li>
+                        <a href="#Ministries" data-toggle="tab">Ministries of Interests </a>
+                    </li>
+                    <li>
+                        <a href="#Church_Address" data-toggle="tab">Church Address</a>
+                    </li>
+                    <li>
+                        <a href="#Social_Connect" data-toggle="tab">Social Connect</a>
+                    </li>
+                    <li>
+                        <a href="#Livestreaming" data-toggle="tab">Livestreaming</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="Personal_Info">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Html.Action("PersonalInfo", "Settings")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Change_Password">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Html.Action("ChangePassword", "Settings")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Ministries">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @Html.Action("Ministries", "Settings")                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Church_Address">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Html.Action("ChurchAddress", "Settings")                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Social_Connect">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Html.Action("SocialConnect", "Settings")                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Livestreaming">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @Html.Action("Livestreaming", "Settings")                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END TAB PORTLET-->
+    </div>
+</div>
+
+
+

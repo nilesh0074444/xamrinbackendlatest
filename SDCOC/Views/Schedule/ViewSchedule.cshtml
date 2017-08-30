@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "View Schedule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<SDCOC.Models.ScheduleDetails>
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+           <li>
+            <span>Schedule</span>
+                <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>@ViewBag.Title</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        @*<div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+            <i class="fa fa-calendar"></i>
+            <span class="thin uppercase hidden-xs"></span>
+            <i class="fa fa-angle-down"></i>
+        </div>*@
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+<h2 class="page_title">@ViewBag.Title</h2>
+<div class="portlet light">
+    <div class="schedule_detail_main view_schedul_details_custom">
+        <a href="@Url.Action("Index", "Schedule")" class="back_btn">Back</a>
+         @if (Model != null)
+         {
+             if (Model.Count > 0)
+             {
+                 <input type="hidden" id="hdnupdateid" name="hdnupdateid" value="@Model.FirstOrDefault().ScheduleId" />
+             <input type="hidden" id="hdnstatus"  name="" value="" />
+        <ul>
+            <li><i class="fa fa-calendar"></i> @Convert.ToDateTime(Model.FirstOrDefault().EventDate).ToString("dd/MM/yyyy")</li>
+            <li><i class="fa fa-clock-o"></i>  @Model.FirstOrDefault().EventStartTime - @Model.FirstOrDefault().EventEndTime</li>
+            <li>Category Name - @Model.FirstOrDefault().ScheduleType</li>
+        </ul>
+        <div class="schedule_desc">
+           @Model.FirstOrDefault().Description
+            <div class="links">
+                <a href="@Url.Action("Index", "Schedule", new  { Id=@Model.FirstOrDefault().ScheduleId})" class="blue-border btn red btn-outline ">Edit</a>
+                <a href="#basic" data-toggle="modal" class="blue-border no_margin">Delete</a>       
+                     
+            </div>
+           
+        </div>
+             }
+         }
+         <a href="@Url.Action("Index", "Schedule")" class="back_btn">Back</a>    
+    </div>
+</div>
+
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Delete </h4>
+            </div>
+            <div class="modal-body">Are you sure? You want to delete this schedule permanently!</div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="blue-border no_marginyes" data-id="yes" data-dismiss="modal">Yes</a>
+                <a href="javascript:void(0);" class="blue-border no_margin" data-id="no" data-dismiss="modal">No</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- / DELETE POPUP End -->
+<script>
+    $(document).on("click", "div#active_inactive .close", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+    });
+    $(document).on("click", "div#basic .close", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+    });
+
+    $(document).on("click", "div#active_inactive a.no_margin", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+        closepopup();
+    });
+    $(document).on("click", "div#basic a.no_margin", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+        closepopup();
+    });
+    function closepopup() {
+        $("#active_inactive").removeClass("in");
+        $("div#basic").removeClass("in");
+        $("body").removeClass("modal-open");
+        $(".modal-backdrop.fade.in").remove();
+        $(".modal.fade").hide();
+    }
+    $(document).on("click", "div#active_inactive a.no_marginyes", function () {
+      
+        var id = $("#hdnupdateid").val();
+        var status = $("#hdnstatus").val();
+
+        //call action here
+
+        var sturl = '@Url.Action("ActiveInactiveScheduleByID")';
+
+        $.ajax({
+            url: sturl,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                'ID': $("#hdnupdateid").val(),
+                'status': $("#hdnstatus").val()
+            },
+            success: function (data) {
+                if (data == "success") {
+                 
+                    window.location = "/Schedule/Index"
+                } else {
+                    closepopup();
+                    alert(data);
+                    return false;
+
+                }
+            },
+            error: function (e) {
+                closepopup();
+                alert("An error has occured ! ");
+                return false;
+            }
+        });
+
+    });
+    $(document).on("click", "div#basic a.no_marginyes", function () {
+        // alert($(this).attr("data-id"));
+      
+        var id = $("#hdnupdateid").val();
+
+        //call action here
+
+        var sturl = '@Url.Action("DeleteScheduleByID")';
+
+        $.ajax({
+            url: sturl,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                'ID': $("#hdnupdateid").val()
+            },
+            success: function (data) {
+                if (data == "success") {
+                    window.location = "/Schedule/Index"
+                } else {
+                    closepopup();
+                    alert(data);
+                    return false;
+                }
+            },
+            error: function (e) {
+                closepopup();
+                alert("An error has occured ! ");
+                return false;
+            }
+        });
+
+
+
+
+
+    });
+
+
+    $(document).on("click", "#tbllst a.trash", function () {
+        $("#hdnupdateid").val(($(this).attr("data-id")));
+        $("#hdnstatus").val($(this).attr(""));
+
+    });
+
+
+    $(document).on("click", " #tbllst a.active,#tbllst a.inactive", function () {
+        $("#hdnupdateid").val(($(this).attr("data-id")));
+        $("#hdnstatus").val($(this).attr("data-staus"));
+    });
+</script>

@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="alianwindows_sdcocModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="alianwindows_sdcocModelStoreContainer">
+          <EntitySet Name="ScheduleCategory" EntityType="alianwindows_sdcocModel.Store.ScheduleCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_AdminUser" EntityType="alianwindows_sdcocModel.Store.tbl_AdminUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Connect" EntityType="alianwindows_sdcocModel.Store.tbl_Connect" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Donation" EntityType="alianwindows_sdcocModel.Store.tbl_Donation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_DonationHistory" EntityType="alianwindows_sdcocModel.Store.tbl_DonationHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_MessageNotification" EntityType="alianwindows_sdcocModel.Store.tbl_MessageNotification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_MessageSubject" EntityType="alianwindows_sdcocModel.Store.tbl_MessageSubject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Ministry_Assigned_Users" EntityType="alianwindows_sdcocModel.Store.tbl_Ministry_Assigned_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_MinistryInterests" EntityType="alianwindows_sdcocModel.Store.tbl_MinistryInterests" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_NewsEvents" EntityType="alianwindows_sdcocModel.Store.tbl_NewsEvents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_OtherNotification" EntityType="alianwindows_sdcocModel.Store.tbl_OtherNotification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_PrayerRequest" EntityType="alianwindows_sdcocModel.Store.tbl_PrayerRequest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Schedule" EntityType="alianwindows_sdcocModel.Store.tbl_Schedule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Setting" EntityType="alianwindows_sdcocModel.Store.tbl_Setting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Subjects" EntityType="alianwindows_sdcocModel.Store.tbl_Subjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Users" EntityType="alianwindows_sdcocModel.Store.tbl_Users" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ScheduleCategory">
+          <Key>
+            <PropertyRef Name="ScheduleTypeId" />
+          </Key>
+          <Property Name="ScheduleTypeId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleType" Type="nvarchar" MaxLength="67" />
+          <Property Name="ISdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_AdminUser">
+          <Key>
+            <PropertyRef Name="AdminUserId" />
+          </Key>
+          <Property Name="AdminUserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="367" />
+          <Property Name="Password" Type="nvarchar" MaxLength="367" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="367" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="367" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="ProfilePicture" Type="nvarchar" MaxLength="367" />
+          <Property Name="ResetCode" Type="nvarchar" MaxLength="67" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Connect">
+          <Key>
+            <PropertyRef Name="ConnectId" />
+          </Key>
+          <Property Name="ConnectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="MessageText" Type="nvarchar(max)" />
+          <Property Name="ReceivedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Donation">
+          <Key>
+            <PropertyRef Name="DonationId" />
+          </Key>
+          <Property Name="DonationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="167" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="167" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="167" />
+          <Property Name="DonationAmount" Type="decimal" Scale="2" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="167" />
+          <Property Name="IsAutoRecurring" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_DonationHistory">
+          <Key>
+            <PropertyRef Name="DonationHistoryId" />
+          </Key>
+          <Property Name="DonationHistoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DonationId" Type="bigint" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="167" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="167" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="167" />
+          <Property Name="DonatedAmount" Type="decimal" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="167" />
+          <Property Name="CardHolderName" Type="nvarchar" MaxLength="167" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="167" />
+          <Property Name="CVVCode" Type="nvarchar" MaxLength="67" />
+          <Property Name="ExpirationDate" Type="nvarchar" MaxLength="67" />
+          <Property Name="DonationDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_MessageNotification">
+          <Key>
+            <PropertyRef Name="MessageNotificationId" />
+          </Key>
+          <Property Name="MessageNotificationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MessageReceivedUserId" Type="bigint" />
+          <Property Name="MessageSubjectId" Type="bigint" />
+          <Property Name="MessageText" Type="nvarchar(max)" />
+          <Property Name="IsReaded" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="MessageReceivedDate" Type="datetime" />
+          <Property Name="MessageSendUserId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_MessageSubject">
+          <Key>
+            <PropertyRef Name="MessageSubjectId" />
+          </Key>
+          <Property Name="MessageSubjectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectId" Type="bigint" />
+          <Property Name="MessageFrom" Type="bigint" />
+          <Property Name="MessageTo" Type="bigint" />
+          <Property Name="MessageText" Type="nvarchar(max)" />
+          <Property Name="MessageSendDate" Type="datetime" />
+          <Property Name="IsReaded" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Ministry_Assigned_Users">
+          <Key>
+            <PropertyRef Name="Assign_MinistryId" />
+          </Key>
+          <Property Name="Assign_MinistryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FK_User_ID" Type="bigint" />
+          <Property Name="FK_MinistryId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_MinistryInterests">
+          <Key>
+            <PropertyRef Name="MinistryId" />
+          </Key>
+          <Property Name="MinistryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MinistryTitle" Type="nvarchar" MaxLength="167" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_NewsEvents">
+          <Key>
+            <PropertyRef Name="NewsEventId" />
+          </Key>
+          <Property Name="NewsEventId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="367" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Eventdate" Type="datetime" />
+          <Property Name="EventTime" Type="nvarchar" MaxLength="67" />
+          <Property Name="EventImage" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_OtherNotification">
+          <Key>
+            <PropertyRef Name="OtherNotificationId" />
+          </Key>
+          <Property Name="OtherNotificationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayText" Type="nvarchar" MaxLength="167" />
+          <Property Name="NotificationReceivedUserId" Type="bigint" />
+          <Property Name="FormName" Type="nvarchar" MaxLength="67" />
+          <Property Name="IsReaded" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="NotificationReceivedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_PrayerRequest">
+          <Key>
+            <PropertyRef Name="PrayerRequestId" />
+          </Key>
+          <Property Name="PrayerRequestId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="67" />
+          <Property Name="PrayerRequestText" Type="nvarchar(max)" />
+          <Property Name="ReceivedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="167" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EventDate" Type="datetime" />
+          <Property Name="EventStartTime" Type="nvarchar" MaxLength="67" />
+          <Property Name="EventEndTime" Type="nvarchar" MaxLength="67" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ScheduleCategory_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tbl_Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChurchAddress" Type="nvarchar(max)" />
+          <Property Name="SocialConnect_FacebookLink" Type="nvarchar" MaxLength="367" />
+          <Property Name="SocialConnect_TwitterLink" Type="nvarchar" MaxLength="367" />
+          <Property Name="Livestream_FacebookLink" Type="nvarchar" MaxLength="367" />
+          <Property Name="Livestream_YoutubeLink" Type="nvarchar" MaxLength="367" />
+        </EntityType>
+        <EntityType Name="tbl_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="167" />
+          <Property Name="SubjectUserId" Type="bigint" />
+          <Property Name="SubjectCreatedDate" Type="datetime" />
+          <Property Name="SubjectCreatedBy" Type="bigint" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="367" />
+          <Property Name="Password" Type="nvarchar" MaxLength="367" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="367" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="367" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsReceiveEmailSMS" Type="bit" />
+          <Property Name="ReceivedOTP" Type="nvarchar" MaxLength="67" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ProfileImage" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="Delete_Assigned_Unassigned_tbl_MinistryInterests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Get_Assigned_Unassigned_tbl_MinistryInterests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Get_Dashboard_Connect_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_Dashboard_PrayerRequest_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_Dashboard_Total_Donation_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_Dashboard_Total_Users_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_Dashboard_Upcoming_NewsEvents_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_DonationautoRecurrringeditgetlastpaydetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Get_EditDonationDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DonationID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GetAll_ScheduleCategory_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_Connect_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_Donation_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_DonationHistory_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_MessageNotification_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAll_tbl_MinistryInterests_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_NewsEvents_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_OtherNotification_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetAll_tbl_PrayerRequest_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_Schedule_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_Subjects_MessagesOrderBY_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="GetAll_tbl_Users_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PageNo" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Update_tbl_MessageNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Update_tbl_OtherNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="bigint" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="alianwindows_sdcocModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SDCOCEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ScheduleCategories" EntityType="alianwindows_sdcocModel.ScheduleCategory" />
+          <EntitySet Name="tbl_AdminUser" EntityType="alianwindows_sdcocModel.tbl_AdminUser" />
+          <EntitySet Name="tbl_Connect" EntityType="alianwindows_sdcocModel.tbl_Connect" />
+          <EntitySet Name="tbl_Donation" EntityType="alianwindows_sdcocModel.tbl_Donation" />
+          <EntitySet Name="tbl_DonationHistory" EntityType="alianwindows_sdcocModel.tbl_DonationHistory" />
+          <EntitySet Name="tbl_MessageNotification" EntityType="alianwindows_sdcocModel.tbl_MessageNotification" />
+          <EntitySet Name="tbl_MessageSubject" EntityType="alianwindows_sdcocModel.tbl_MessageSubject" />
+          <EntitySet Name="tbl_MinistryInterests" EntityType="alianwindows_sdcocModel.tbl_MinistryInterests" />
+          <EntitySet Name="tbl_NewsEvents" EntityType="alianwindows_sdcocModel.tbl_NewsEvents" />
+          <EntitySet Name="tbl_OtherNotification" EntityType="alianwindows_sdcocModel.tbl_OtherNotification" />
+          <EntitySet Name="tbl_PrayerRequest" EntityType="alianwindows_sdcocModel.tbl_PrayerRequest" />
+          <EntitySet Name="tbl_Schedule" EntityType="alianwindows_sdcocModel.tbl_Schedule" />
+          <EntitySet Name="tbl_Setting" EntityType="alianwindows_sdcocModel.tbl_Setting" />
+          <EntitySet Name="tbl_Subjects" EntityType="alianwindows_sdcocModel.tbl_Subjects" />
+          <EntitySet Name="tbl_Users" EntityType="alianwindows_sdcocModel.tbl_Users" />
+          <FunctionImport Name="Get_Dashboard_Connect_Details" ReturnType="Collection(alianwindows_sdcocModel.Get_Dashboard_Connect_Details_Result)" />
+          <FunctionImport Name="Get_Dashboard_PrayerRequest_Details" ReturnType="Collection(alianwindows_sdcocModel.Get_Dashboard_PrayerRequest_Details_Result)" />
+          <FunctionImport Name="Get_Dashboard_Total_Donation_Details" ReturnType="Collection(Decimal)" />
+          <FunctionImport Name="Get_Dashboard_Total_Users_Details" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="Get_Dashboard_Upcoming_NewsEvents_Details" ReturnType="Collection(alianwindows_sdcocModel.Get_Dashboard_Upcoming_NewsEvents_Details_Result)" />
+          <FunctionImport Name="GetAll_ScheduleCategory_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_ScheduleCategory_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_Connect_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_Connect_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_Donation_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_Donation_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_DonationHistory_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_DonationHistory_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_MessageNotification_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_MessageNotification_Details_Result)" />
+          <FunctionImport Name="GetAll_tbl_MinistryInterests_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_MinistryInterests_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_NewsEvents_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_NewsEvents_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_OtherNotification_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_OtherNotification_Details_Result)" />
+          <FunctionImport Name="GetAll_tbl_PrayerRequest_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_PrayerRequest_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_Schedule_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_Schedule_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_Subjects_MessagesOrderBY_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_Subjects_MessagesOrderBY_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="GetAll_tbl_Users_Details" ReturnType="Collection(alianwindows_sdcocModel.GetAll_tbl_Users_Details_Result)">
+            <Parameter Name="serachword" Mode="In" Type="String" />
+            <Parameter Name="PageNo" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="SortColumn" Mode="In" Type="String" />
+            <Parameter Name="SortOrder" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Update_tbl_MessageNotification">
+          <Parameter Name="UserID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Update_tbl_OtherNotification">
+          <Parameter Name="UserID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Get_EditDonationDetails" ReturnType="Collection(alianwindows_sdcocModel.Get_EditDonationDetails_Result)">
+          <Parameter Name="DonationID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Ministry_Assigned_Users" EntityType="alianwindows_sdcocModel.tbl_Ministry_Assigned_Users" />
+          <FunctionImport Name="Get_Assigned_Unassigned_tbl_MinistryInterests" ReturnType="Collection(alianwindows_sdcocModel.Get_Assigned_Unassigned_tbl_MinistryInterests_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Assigned_Unassigned_tbl_MinistryInterests">
+          <Parameter Name="UserID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Get_DonationautoRecurrringeditgetlastpaydetails" ReturnType="Collection(alianwindows_sdcocModel.Get_DonationautoRecurrringeditgetlastpaydetails_Result)" />
+        </EntityContainer>
+        <EntityType Name="ScheduleCategory">
+          <Key>
+            <PropertyRef Name="ScheduleTypeId" />
+          </Key>
+          <Property Name="ScheduleTypeId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleType" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="ISdeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_AdminUser">
+          <Key>
+            <PropertyRef Name="AdminUserId" />
+          </Key>
+          <Property Name="AdminUserId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Firstname" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="ProfilePicture" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="ResetCode" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_Connect">
+          <Key>
+            <PropertyRef Name="ConnectId" />
+          </Key>
+          <Property Name="ConnectId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="MessageText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Donation">
+          <Key>
+            <PropertyRef Name="DonationId" />
+          </Key>
+          <Property Name="DonationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="Firstname" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="EmailId" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="DonationAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaymentType" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="IsAutoRecurring" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_DonationHistory">
+          <Key>
+            <PropertyRef Name="DonationHistoryId" />
+          </Key>
+          <Property Name="DonationHistoryId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DonationId" Type="Int64" />
+          <Property Name="Firstname" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="EmailId" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="DonatedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="PaymentType" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="CardHolderName" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="CVVCode" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="ExpirationDate" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="DonationDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_MessageNotification">
+          <Key>
+            <PropertyRef Name="MessageNotificationId" />
+          </Key>
+          <Property Name="MessageNotificationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageReceivedUserId" Type="Int64" />
+          <Property Name="MessageSubjectId" Type="Int64" />
+          <Property Name="MessageText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsReaded" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="MessageReceivedDate" Type="DateTime" Precision="3" />
+          <Property Name="MessageSendUserId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_MessageSubject">
+          <Key>
+            <PropertyRef Name="MessageSubjectId" />
+          </Key>
+          <Property Name="MessageSubjectId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectId" Type="Int64" />
+          <Property Name="MessageFrom" Type="Int64" />
+          <Property Name="MessageTo" Type="Int64" />
+          <Property Name="MessageText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MessageSendDate" Type="DateTime" Precision="3" />
+          <Property Name="IsReaded" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_MinistryInterests">
+          <Key>
+            <PropertyRef Name="MinistryId" />
+          </Key>
+          <Property Name="MinistryId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MinistryTitle" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_NewsEvents">
+          <Key>
+            <PropertyRef Name="NewsEventId" />
+          </Key>
+          <Property Name="NewsEventId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Eventdate" Type="DateTime" Precision="3" />
+          <Property Name="EventTime" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="EventImage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_OtherNotification">
+          <Key>
+            <PropertyRef Name="OtherNotificationId" />
+          </Key>
+          <Property Name="OtherNotificationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayText" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="NotificationReceivedUserId" Type="Int64" />
+          <Property Name="FormName" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="IsReaded" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="NotificationReceivedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_PrayerRequest">
+          <Key>
+            <PropertyRef Name="PrayerRequestId" />
+          </Key>
+          <Property Name="PrayerRequestId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="PrayerRequestText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EventDate" Type="DateTime" Precision="3" />
+          <Property Name="EventStartTime" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="EventEndTime" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleCategory_ID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tbl_Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ChurchAddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SocialConnect_FacebookLink" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="SocialConnect_TwitterLink" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Livestream_FacebookLink" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Livestream_YoutubeLink" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Subjects">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" MaxLength="167" Unicode="true" FixedLength="false" />
+          <Property Name="SubjectUserId" Type="Int64" />
+          <Property Name="SubjectCreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="SubjectCreatedBy" Type="Int64" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Firstname" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="367" Unicode="true" FixedLength="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsReceiveEmailSMS" Type="Boolean" />
+          <Property Name="ReceivedOTP" Type="String" MaxLength="67" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ProfileImage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="Get_Dashboard_Connect_Details_Result">
+          <Property Type="Int64" Name="ConnectId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="MessageText" Nullable="true" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Get_Dashboard_PrayerRequest_Details_Result">
+          <Property Type="Int64" Name="PrayerRequestId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="67" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PrayerRequestText" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_Dashboard_Upcoming_NewsEvents_Details_Result">
+          <Property Type="Int64" Name="NewsEventId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="Eventdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="EventTime" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EventImage" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_ScheduleCategory_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="ScheduleTypeId" Nullable="false" />
+          <Property Type="String" Name="ScheduleType" Nullable="true" MaxLength="67" />
+          <Property Type="Boolean" Name="ISdeleted" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_Connect_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="ConnectId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="MessageText" Nullable="true" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_Donation_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="Int64" Name="DonationId" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="735" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="167" />
+          <Property Type="Decimal" Name="DonationAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="167" />
+          <Property Type="Boolean" Name="IsAutoRecurring" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_DonationHistory_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="DonationHistoryId" Nullable="false" />
+          <Property Type="Int64" Name="DonationId" Nullable="true" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="167" />
+          <Property Type="Decimal" Name="DonatedAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="CardHolderName" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="CardNumber" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="CVVCode" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="ExpirationDate" Nullable="true" MaxLength="67" />
+          <Property Type="DateTime" Name="DonationDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_MessageNotification_Details_Result">
+          <Property Type="Int64" Name="MessageNotificationId" Nullable="false" />
+          <Property Type="Int64" Name="MessageReceivedUserId" Nullable="true" />
+          <Property Type="Int64" Name="MessageSubjectId" Nullable="true" />
+          <Property Type="String" Name="MessageText" Nullable="true" />
+          <Property Type="Boolean" Name="IsReaded" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="MessageReceivedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="MessageSendUserId" Nullable="true" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="ProfileImage" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_MinistryInterests_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="MinistryId" Nullable="false" />
+          <Property Type="String" Name="MinistryTitle" Nullable="true" MaxLength="167" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_NewsEvents_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="NewsEventId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="Eventdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="EventTime" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EventImage" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_OtherNotification_Details_Result">
+          <Property Type="Int64" Name="OtherNotificationId" Nullable="false" />
+          <Property Type="String" Name="DisplayText" Nullable="true" MaxLength="167" />
+          <Property Type="Int64" Name="NotificationReceivedUserId" Nullable="true" />
+          <Property Type="String" Name="FormName" Nullable="true" MaxLength="67" />
+          <Property Type="Boolean" Name="IsReaded" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="NotificationReceivedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_PrayerRequest_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="PrayerRequestId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="67" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PrayerRequestText" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_Schedule_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="ScheduleId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="EventDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="EventStartTime" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EventEndTime" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="ScheduleType" Nullable="true" MaxLength="67" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="ScheduleCategory_ID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_Subjects_MessagesOrderBY_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="SubjectId" Nullable="false" />
+          <Property Type="String" Name="SubjectName" Nullable="true" MaxLength="167" />
+          <Property Type="Int64" Name="SubjectUserId" Nullable="true" />
+          <Property Type="DateTime" Name="SubjectCreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="SubjectCreatedBy" Nullable="true" />
+          <Property Type="String" Name="LastMessage" Nullable="true" />
+          <Property Type="DateTime" Name="MessageSendDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsReaded" Nullable="true" />
+          <Property Type="Int64" Name="MessageSubjectId" Nullable="true" />
+          <Property Type="Int64" Name="MessageTo" Nullable="true" />
+          <Property Type="Int64" Name="MessageFrom" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAll_tbl_Users_Details_Result">
+          <Property Type="Int32" Name="TotalCount" Nullable="true" />
+          <Property Type="Int64" Name="ROWNUM" Nullable="true" />
+          <Property Type="Int64" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="367" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="67" />
+          <Property Type="DateTime" Name="Birthdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="Boolean" Name="IsReceiveEmailSMS" Nullable="true" />
+          <Property Type="String" Name="ReceivedOTP" Nullable="true" MaxLength="67" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Get_EditDonationDetails_Result">
+          <Property Type="Int64" Name="DonationId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="735" />
+          <Property Type="Boolean" Name="IsAutoRecurring" Nullable="true" />
+          <Property Type="DateTime" Name="DonationDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="DonatedAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="167" />
+        </ComplexType>
+        <EntityType Name="tbl_Ministry_Assigned_Users">
+          <Key>
+            <PropertyRef Name="Assign_MinistryId" />
+          </Key>
+          <Property Type="Int64" Name="Assign_MinistryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="FK_User_ID" />
+          <Property Type="Int64" Name="FK_MinistryId" />
+        </EntityType>
+        <ComplexType Name="Get_Assigned_Unassigned_tbl_MinistryInterests_Result">
+          <Property Type="Int64" Name="MinistryId" Nullable="false" />
+          <Property Type="String" Name="MinistryTitle" Nullable="true" MaxLength="167" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+          <Property Type="Int64" Name="Assign_MinistryId" Nullable="true" />
+          <Property Type="Int64" Name="FK_User_ID" Nullable="true" />
+          <Property Type="Int64" Name="FK_MinistryId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Get_DonationautoRecurrringeditgetlastpaydetails_Result">
+          <Property Type="Int64" Name="DonationId" Nullable="false" />
+          <Property Type="Int64" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="735" />
+          <Property Type="Boolean" Name="IsAutoRecurring" Nullable="true" />
+          <Property Type="DateTime" Name="DonationDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="DonatedAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="167" />
+          <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="67" />
+          <Property Type="String" Name="EmailId" Nullable="true" MaxLength="167" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="alianwindows_sdcocModelStoreContainer" CdmEntityContainer="SDCOCEntities">
+          <EntitySetMapping Name="ScheduleCategories">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.ScheduleCategory">
+              <MappingFragment StoreEntitySet="ScheduleCategory">
+                <ScalarProperty Name="ScheduleTypeId" ColumnName="ScheduleTypeId" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+                <ScalarProperty Name="ISdeleted" ColumnName="ISdeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AdminUser">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_AdminUser">
+              <MappingFragment StoreEntitySet="tbl_AdminUser">
+                <ScalarProperty Name="AdminUserId" ColumnName="AdminUserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+                <ScalarProperty Name="ResetCode" ColumnName="ResetCode" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Connect">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Connect">
+              <MappingFragment StoreEntitySet="tbl_Connect">
+                <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Donation">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Donation">
+              <MappingFragment StoreEntitySet="tbl_Donation">
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DonationHistory">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_DonationHistory">
+              <MappingFragment StoreEntitySet="tbl_DonationHistory">
+                <ScalarProperty Name="DonationHistoryId" ColumnName="DonationHistoryId" />
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CVVCode" ColumnName="CVVCode" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_MessageNotification">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MessageNotification">
+              <MappingFragment StoreEntitySet="tbl_MessageNotification">
+                <ScalarProperty Name="MessageNotificationId" ColumnName="MessageNotificationId" />
+                <ScalarProperty Name="MessageReceivedUserId" ColumnName="MessageReceivedUserId" />
+                <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MessageReceivedDate" ColumnName="MessageReceivedDate" />
+                <ScalarProperty Name="MessageSendUserId" ColumnName="MessageSendUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_MessageSubject">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MessageSubject">
+              <MappingFragment StoreEntitySet="tbl_MessageSubject">
+                <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="MessageFrom" ColumnName="MessageFrom" />
+                <ScalarProperty Name="MessageTo" ColumnName="MessageTo" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="MessageSendDate" ColumnName="MessageSendDate" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_MinistryInterests">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MinistryInterests">
+              <MappingFragment StoreEntitySet="tbl_MinistryInterests">
+                <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+                <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_NewsEvents">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_NewsEvents">
+              <MappingFragment StoreEntitySet="tbl_NewsEvents">
+                <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_OtherNotification">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_OtherNotification">
+              <MappingFragment StoreEntitySet="tbl_OtherNotification">
+                <ScalarProperty Name="OtherNotificationId" ColumnName="OtherNotificationId" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="NotificationReceivedUserId" ColumnName="NotificationReceivedUserId" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NotificationReceivedDate" ColumnName="NotificationReceivedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PrayerRequest">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_PrayerRequest">
+              <MappingFragment StoreEntitySet="tbl_PrayerRequest">
+                <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Schedule">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Schedule">
+              <MappingFragment StoreEntitySet="tbl_Schedule">
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventStartTime" ColumnName="EventStartTime" />
+                <ScalarProperty Name="EventEndTime" ColumnName="EventEndTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ScheduleCategory_ID" ColumnName="ScheduleCategory_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Setting">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Setting">
+              <MappingFragment StoreEntitySet="tbl_Setting">
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+                <ScalarProperty Name="ChurchAddress" ColumnName="ChurchAddress" />
+                <ScalarProperty Name="SocialConnect_FacebookLink" ColumnName="SocialConnect_FacebookLink" />
+                <ScalarProperty Name="SocialConnect_TwitterLink" ColumnName="SocialConnect_TwitterLink" />
+                <ScalarProperty Name="Livestream_FacebookLink" ColumnName="Livestream_FacebookLink" />
+                <ScalarProperty Name="Livestream_YoutubeLink" ColumnName="Livestream_YoutubeLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Subjects">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Subjects">
+              <MappingFragment StoreEntitySet="tbl_Subjects">
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="SubjectUserId" ColumnName="SubjectUserId" />
+                <ScalarProperty Name="SubjectCreatedDate" ColumnName="SubjectCreatedDate" />
+                <ScalarProperty Name="SubjectCreatedBy" ColumnName="SubjectCreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Users">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Users">
+              <MappingFragment StoreEntitySet="tbl_Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsReceiveEmailSMS" ColumnName="IsReceiveEmailSMS" />
+                <ScalarProperty Name="ReceivedOTP" ColumnName="ReceivedOTP" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Dashboard_Connect_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Connect_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_Connect_Details_Result">
+                <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_Dashboard_PrayerRequest_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_PrayerRequest_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_PrayerRequest_Details_Result">
+                <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_Dashboard_Total_Donation_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Total_Donation_Details" />
+          <FunctionImportMapping FunctionImportName="Get_Dashboard_Total_Users_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Total_Users_Details" />
+          <FunctionImportMapping FunctionImportName="Get_Dashboard_Upcoming_NewsEvents_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Upcoming_NewsEvents_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_Upcoming_NewsEvents_Details_Result">
+                <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_ScheduleCategory_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_ScheduleCategory_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_ScheduleCategory_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="ScheduleTypeId" ColumnName="ScheduleTypeId" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+                <ScalarProperty Name="ISdeleted" ColumnName="ISdeleted" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_Connect_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Connect_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Connect_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_Donation_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Donation_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Donation_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_DonationHistory_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_DonationHistory_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_DonationHistory_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="DonationHistoryId" ColumnName="DonationHistoryId" />
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="CVVCode" ColumnName="CVVCode" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_MessageNotification_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_MessageNotification_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_MessageNotification_Details_Result">
+                <ScalarProperty Name="MessageNotificationId" ColumnName="MessageNotificationId" />
+                <ScalarProperty Name="MessageReceivedUserId" ColumnName="MessageReceivedUserId" />
+                <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MessageReceivedDate" ColumnName="MessageReceivedDate" />
+                <ScalarProperty Name="MessageSendUserId" ColumnName="MessageSendUserId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_MinistryInterests_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_MinistryInterests_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_MinistryInterests_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+                <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_NewsEvents_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_NewsEvents_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_NewsEvents_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_OtherNotification_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_OtherNotification_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_OtherNotification_Details_Result">
+                <ScalarProperty Name="OtherNotificationId" ColumnName="OtherNotificationId" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="NotificationReceivedUserId" ColumnName="NotificationReceivedUserId" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NotificationReceivedDate" ColumnName="NotificationReceivedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_PrayerRequest_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_PrayerRequest_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_PrayerRequest_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_Schedule_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Schedule_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Schedule_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventStartTime" ColumnName="EventStartTime" />
+                <ScalarProperty Name="EventEndTime" ColumnName="EventEndTime" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ScheduleCategory_ID" ColumnName="ScheduleCategory_ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_Subjects_MessagesOrderBY_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Subjects_MessagesOrderBY_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Subjects_MessagesOrderBY_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="SubjectUserId" ColumnName="SubjectUserId" />
+                <ScalarProperty Name="SubjectCreatedDate" ColumnName="SubjectCreatedDate" />
+                <ScalarProperty Name="SubjectCreatedBy" ColumnName="SubjectCreatedBy" />
+                <ScalarProperty Name="LastMessage" ColumnName="LastMessage" />
+                <ScalarProperty Name="MessageSendDate" ColumnName="MessageSendDate" />
+                <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+                <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+                <ScalarProperty Name="MessageTo" ColumnName="MessageTo" />
+                <ScalarProperty Name="MessageFrom" ColumnName="MessageFrom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAll_tbl_Users_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Users_Details">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Users_Details_Result">
+                <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+                <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsReceiveEmailSMS" ColumnName="IsReceiveEmailSMS" />
+                <ScalarProperty Name="ReceivedOTP" ColumnName="ReceivedOTP" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Update_tbl_MessageNotification" FunctionName="alianwindows_sdcocModel.Store.Update_tbl_MessageNotification" />
+          <FunctionImportMapping FunctionImportName="Update_tbl_OtherNotification" FunctionName="alianwindows_sdcocModel.Store.Update_tbl_OtherNotification" />
+          <FunctionImportMapping FunctionImportName="Get_EditDonationDetails" FunctionName="alianwindows_sdcocModel.Store.Get_EditDonationDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_EditDonationDetails_Result">
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+                <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+                <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_Ministry_Assigned_Users">
+            <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Ministry_Assigned_Users">
+              <MappingFragment StoreEntitySet="tbl_Ministry_Assigned_Users">
+                <ScalarProperty Name="FK_MinistryId" ColumnName="FK_MinistryId" />
+                <ScalarProperty Name="FK_User_ID" ColumnName="FK_User_ID" />
+                <ScalarProperty Name="Assign_MinistryId" ColumnName="Assign_MinistryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_Assigned_Unassigned_tbl_MinistryInterests" FunctionName="alianwindows_sdcocModel.Store.Get_Assigned_Unassigned_tbl_MinistryInterests">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Assigned_Unassigned_tbl_MinistryInterests_Result">
+                <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+                <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Assign_MinistryId" ColumnName="Assign_MinistryId" />
+                <ScalarProperty Name="FK_User_ID" ColumnName="FK_User_ID" />
+                <ScalarProperty Name="FK_MinistryId" ColumnName="FK_MinistryId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Delete_Assigned_Unassigned_tbl_MinistryInterests" FunctionName="alianwindows_sdcocModel.Store.Delete_Assigned_Unassigned_tbl_MinistryInterests" />
+          <FunctionImportMapping FunctionImportName="Get_DonationautoRecurrringeditgetlastpaydetails" FunctionName="alianwindows_sdcocModel.Store.Get_DonationautoRecurrringeditgetlastpaydetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_DonationautoRecurrringeditgetlastpaydetails_Result">
+                <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+                <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+                <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,446 @@
+﻿@{
+    ViewBag.Title = "UserSubjects";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb messages">
+        <li>
+            <a href="@Url.Action("Index","Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Messages</span>
+        </li>
+        <li><span>@ViewBag.UserName</span></li>
+        <li>
+            <span>Messages</span>
+        </li>
+    </ul> 
+    <div class="page-toolbar">
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+
+<!-- END PAGE BAR -->
+
+<h1 class="page-title">Messages</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject sbold uppercase">Messages</span>
+                    <span><a href="javascript:void(0);" id="lnkAddNewSubject" >Add New Subject</a></span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="dataTables_filter1 pull-right1">
+                            <label>
+                                <input type="search" class="form-control input-sm input-small input-inline" placeholder="Search" id="txtsearch" value=""></label>
+                        </div>
+                    </div>
+                </div>
+                <div id="lstdiv">
+                    @Html.Action("ViewSubjects", "Messages", new  { serachword = "",  PageNo = 1,  PageSize = 4,  SortColumn = "SubjectCreatedDate",  SortOrder = "DESC",  UserID=@ViewBag.UserID })
+                </div>
+            </div>
+
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+<!-- / DELETE POPUP Start -->
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Delete </h4>
+            </div>
+            <div class="modal-body">Are you sure? You want to delete this user permanently!</div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="blue-border no_marginyes" data-id="yes" data-dismiss="modal">Yes</a>
+                <a href="javascript:void(0);" class="blue-border no_margin" data-id="no" data-dismiss="modal">No</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- / DELETE POPUP End -->
+
+<!-- / Active /Inactive POPUP Start -->
+<div class="modal fade" id="active_inactive" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Status </h4>
+            </div>
+            <div class="modal-body">Are you sure to change status of user?</div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="blue-border no_marginyes" data-id="yes" data-dismiss="modal">Yes</a>
+                <a href="javascript:void(0);" class="blue-border no_margin" data-id="no" data-dismiss="modal">No</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade divAddsubject" id="Addsubject" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"></button>
+                <h4 class="modal-title">Add New Subject </h4>
+                <input type="hidden" id="hdntxtuserid" name="hdntxtuserid" value="@ViewBag.UserID" />
+            </div>
+            <div class="modal-body">
+               <div>
+                   <div>Subject Name<span>*</span></div>
+                   <div><input type="text" id="txtSubjectName" name="txtSubjectName" class="txtSubjectName" placeholder="Add Subject Name" maxlength="50" /></div>
+               </div>
+                 <div>
+                   <div>Message<span>*</span></div>
+                   <div><textarea id="txtMessage" name="txtMessage" class="txtMessage" maxlength="250"></textarea></div>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="blue-border send" id="lnksend">Send</a>
+                <a href="javascript:void(0);" class="blue-border cancel" >Cancel</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- / Active /Inactive POPUP End -->
+<input type="hidden" id="hdnupdateid" name="hdnupdateid" value="0" />
+<input type="hidden" id="hdnstatus" name="" value="" />
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<input type="hidden" id="hdnuserid" name="hdnuserid" value="@ViewBag.UserID" />
+<script>
+    $(document).on("click", "#Addsubject .close", function () {
+        $("#txtSubjectName").val("");
+        $("#txtMessage").text("");
+        $(".divAddsubject").removeClass("in");
+        $(".divAddsubject").hide();
+        $("body").removeAttr("style");
+    });
+
+    $(document).on("click", "#Addsubject .cancel", function () {
+        $("#txtSubjectName").val("");
+        $("#txtMessage").text("");
+        $(".divAddsubject").removeClass("in");
+        $(".divAddsubject").hide();
+        $("body").removeAttr("style");
+    });
+    $(document).on("click", "#lnkAddNewSubject", function () {
+        $("#txtSubjectName").val("");
+        $("#txtMessage").text("");
+        $(".divAddsubject").addClass("in");
+        $(".divAddsubject").show();
+        $("body").css("overflow", "hidden");
+    });
+    $(document).on("focus", "#txtSubjectName", function () {
+        $("#txtSubjectName").removeClass("error1");
+    });
+    $(document).on("focus", "#txtMessage", function () {
+        $("#txtMessage").removeClass("error1");
+    });
+    $(document).on("click", "#lnksend", function () {
+        var txtSubjectName = $("#txtSubjectName").val();
+        var txtmessage = $("#txtMessage").val();
+
+        if (txtSubjectName == "" || txtmessage == "") {
+            if (txtSubjectName == "") {
+                $("#txtSubjectName").addClass("error1");
+            } else {
+                $("#txtSubjectName").removeClass("error1");
+            }
+
+            if (txtmessage == "") {
+                $("#txtMessage").addClass("error1");
+            } else {
+                $("#txtMessage").removeClass("error1");
+            }
+            return false;
+        }
+
+        else {
+
+          
+            var sturl = '@Url.Action("SaveSubjectMessages")';
+
+            $.ajax({
+                url: sturl,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'ID': $("#hdntxtuserid").val(),
+                    'subjectname': $("#txtSubjectName").val(),
+                    'messages': $("#txtMessage").val()
+                },
+                success: function (data) {
+                    if (data == "success") {
+                        var PageSize = "";
+                        if ($("#selectrecords").length > 0) {
+                            PageSize = $("#selectrecords").val();
+                        } else {
+                            PageSize = $("#PageSize").val();
+                        }
+                        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+                        "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+                        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+                            $("#txtSubjectName").val("");
+                            $("#txtMessage").text("");
+                            $(".divAddsubject").removeClass("in");
+                            $(".divAddsubject").hide();
+                            $("body").removeAttr("style");
+                        });
+                    } else {
+                        
+                        alert(data);
+                        return false;
+
+                    }
+                },
+                error: function (e) {
+                   
+                    alert("An error has occured ! ");
+                    return false;
+                }
+            });
+        }
+    });
+    
+
+
+    $(document).on("click", "#lstfirstpage", function () {
+
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=1" +
+        "&PageSize=" + 1 + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+    });
+    $(document).on("click", "#lstprveiouspage", function () {
+
+        var pageno = parseInt($("#PageNo").val()) - 1;
+        if (parseInt(pageno) == 0) {
+            pageno = 1;
+        }
+
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+         "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+
+    });
+    $(document).on("click", "#lstnextpage", function () {
+
+        var pageno = parseInt($("#PageNo").val()) + 1;
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+        "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+
+    });
+    $(document).on("click", "#lstlastpage", function () {
+
+        var pageno = $(this).attr("data-page");
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+       "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+    });
+    $(document).on("click", "#lstpageclick", function () {
+
+        var pageno = $(this).attr("data-page");
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+       "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+    });
+
+    $(document).on("keyup", "#txtsearch", function () {
+       
+        var PageSize = "";
+        if ($("#selectrecords").length > 0) {
+            PageSize = $("#selectrecords").val();
+        } else {
+            PageSize = $("#PageSize").val();
+        }
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+        "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+    });
+    $(document).on("change", "#selectrecords", function () {
+
+        if ($("#selectrecords").length > 0) {
+            PageSize = $("#selectrecords").val();
+        } else {
+            PageSize = $("#PageSize").val();
+        }
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+      "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+        $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+
+        });
+        $("#selectrecords").val(PageSize);
+    });
+ 
+    
+    $(document).on("click", "div#active_inactive .close", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+    });
+    $(document).on("click", "div#basic .close", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+    });
+
+    $(document).on("click", "div#active_inactive a.no_margin", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+        closepopup();
+    });
+    $(document).on("click", "div#basic a.no_margin", function () {
+        $("#hdnupdateid").val("0");
+        $("#hdnstatus").val("");
+        closepopup();
+    });
+    function closepopup() {
+        $("#active_inactive").removeClass("in");
+        $("div#basic").removeClass("in");
+        $("body").removeClass("modal-open");
+        $(".modal-backdrop.fade.in").remove();
+        $(".modal.fade").hide();
+    }
+    $(document).on("click", "div#active_inactive a.no_marginyes", function () {
+      
+        var id = $("#hdnupdateid").val();
+        var status = $("#hdnstatus").val();
+
+        //call action here
+
+        var sturl = '@Url.Action("ActiveInactiveMessagesSubjectByID")';
+
+        $.ajax({
+            url: sturl,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                'ID': $("#hdnupdateid").val(),
+                'status': $("#hdnstatus").val()
+            },
+            success: function (data) {
+                if (data == "success") {
+                    var PageSize = "";
+                    if ($("#selectrecords").length > 0) {
+                        PageSize = $("#selectrecords").val();
+                    } else {
+                        PageSize = $("#PageSize").val();
+                    }
+                    var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+                    "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+                    $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+                        closepopup();
+                    });
+                } else {
+                    closepopup();
+                    alert(data);
+                    return false;
+
+                }
+            },
+            error: function (e) {
+                closepopup();
+                alert("An error has occured ! ");
+                return false;
+            }
+        });
+
+    });
+    $(document).on("click", "div#basic a.no_marginyes", function () {
+        // alert($(this).attr("data-id"));
+      
+        var id = $("#hdnupdateid").val();
+
+        //call action here
+
+        var sturl = '@Url.Action("DeleteMessagesSubjectByID")';
+
+        $.ajax({
+            url: sturl,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                'ID': $("#hdnupdateid").val()
+            },
+            success: function (data) {
+                if (data == "success") {
+                    var PageSize = "";
+                    if ($("#selectrecords").length > 0) {
+                        PageSize = $("#selectrecords").val();
+                    } else {
+                        PageSize = $("#PageSize").val();
+                    }
+                    var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+                    "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val() + "&UserID=" + $("#hdnuserid").val();
+                    $("#lstdiv").load("/Messages/ViewSubjects" + querystring, function () {
+                        closepopup();
+                    });
+                } else {
+                    closepopup();
+                    alert(data);
+                    return false;
+                }
+            },
+            error: function (e) {
+                closepopup();
+                alert("An error has occured ! ");
+                return false;
+            }
+        });
+
+
+
+
+
+    });
+
+
+    $(document).on("click", "#tbllst a.trash", function () {
+        $("#hdnupdateid").val(($(this).attr("data-id")));
+        $("#hdnstatus").val($(this).attr(""));
+
+    });
+
+
+    $(document).on("click", " #tbllst a.active,#tbllst a.inactive", function () {
+        $("#hdnupdateid").val(($(this).attr("data-id")));
+        $("#hdnstatus").val($(this).attr("data-staus"));
+    });
+</script>
+

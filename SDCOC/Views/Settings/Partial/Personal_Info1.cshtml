@@ -1,0 +1,242 @@
+﻿<link href="~/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+
+@{
+    //SDCOC.Models.SDCOCEntities _db = new SDCOC.Models.SDCOCEntities();
+    //var admindetail = _db.tbl_Setting
+    
+}
+
+@using (Html.BeginForm("UpdatePersonnelInfoDetails", "Settings", FormMethod.Post, new { ID = "frmPersonnelInfo", enctype = "multipart/form-data", onsubmit = "return checkPersonalInfoValidation();" }))
+{
+    <div>
+        <div class="form-group status">
+            <label class="control-label">Profile Image</label>
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="fileupload-new thumbnail" style="width: 200px; height: 200px; padding:0; border: none;">
+
+                    @if (Session["AdminProfile"] != "" && Session["AdminProfile"] != null)
+                    {
+                        <img alt="profile-picture" class="img-circle" src="~/Images/UserImages/ProfileImages/@Session["AdminProfile"]" id="my_photo" />
+                        
+                    }
+                    else
+                    {
+
+                        <img alt="profile-picture" class="img-circle" src="~/assets/layouts/layout/img/DummyImage.png" id="my_photo" /> 
+                    }
+
+                </div>
+                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
+                <div>
+                    <span class="btn default btn-file">
+                        <span class="fileupload-new" id="fileupload-new">Select image</span>
+                        <span class="fileupload-exists" id="Change"><i class="icon-undo"></i>Change</span>
+                        <input type="file" class="default" id="AdminProfilePicture" name="AdminProfilePicture" onchange="return ValidateFileUpload(this);" />
+
+                    </span>
+                    <a href="javascript:void(0);" class="btn red fileupload-exists" id="removeimage" data-dismiss="fileupload"><i class="icon-trash"></i>Remove</a>
+                </div>
+                <input type="hidden" id="hdnpadminrofileimage" name="hdnpadminrofileimage"  value="@Session["AdminProfile"]" />
+            </div>
+            <span class="label label-danger">NOTE!</span>
+            <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Email*</label>
+        <input class="form-control" readonly="" type="email" id="txtEmailaddress" name="txtEmailaddress" value="@Session["EmailId"]" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">First Name*</label>
+        <input class="form-control" type="text" id="txtFirstname" name="txtFirstname" value="@Session["Firstname"]">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Last Name*</label>
+        <input class="form-control" type="text" id="txtLastname" name="txtLastname" value="@Session["Lastname"]">
+    </div>
+    <div class="form-actions">
+        <input type="submit" class="btn blue-border uppercase pull-left" value="Save">
+        <a href="javascript:void(0);" id="btnProfileCancel" class="black-border pull-left">Clear</a>
+    </div>
+    
+                    if (Convert.ToBoolean(ViewBag.SuccessMsg) == true)
+                    {
+   
+        <div class="form-group">
+            <div class="alert alert-success" style="background-color: #fdfdfd; border-color: #fdfdfd;display: inline-block;padding: 5px;">
+                <strong>Save successfully !</strong>
+            </div>
+        </div>
+    
+                    }
+}
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="~/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        checkdefaultImage();
+        $("#removeimage").click(function () {
+            var path = document.location.origin + "/Images/UserImages/ProfileImages/no-image.png";
+            $("#my_photo").attr("src", path);
+            $("#removeimage").hide();
+            $("#Change").hide();
+            $("#fileupload-new").show();
+            $("#hdnpadminrofileimage").val("no-image.png");
+            return false;
+        });
+    });
+
+    function ValidateEmail(mail) {
+        if (/^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+            return (true)
+        }
+        alert("You have entered an invalid email address !")
+        return (false)
+    }
+    function checkdefaultImage() {
+        var path = document.location.origin + "\Images\UserImages\ProfileImages\no-image.png";
+
+        if ($("#my_photo").attr("src").indexOf("no-image.png") > -1) {
+            $("#removeimage").hide();
+            $("#Change").hide();
+            $("#fileupload-new").show();
+        } else {
+            $("#removeimage").show();
+            $("#Change").show();
+            $("#fileupload-new").hide();
+        }
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+
+            var FileUploadPath = input.files[0].name;
+            var Extension = FileUploadPath.substring(
+               FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+
+            //The file uploaded is an image
+            //    if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+            //                    || Extension == "jpeg" || Extension == "jpg") {
+
+            var reader = new FileReader();
+
+
+            reader.onload = function (e) {
+                $('#my_photo').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+
+        }
+    }
+
+    function ValidateFileUpload(obj) {
+
+        var FileUploadPath = $(obj).val();
+        //To check if user upload any file
+        //    $("#hdnimage").val("0");
+        var Extension = FileUploadPath.substring(
+                FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+
+        //The file uploaded is an image
+        //    if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+        //                    || Extension == "jpeg" || Extension == "jpg") {
+        if (Extension == "jpg" || Extension == "bmp" || Extension == "png") {
+
+            // To Display
+            if (obj.files && obj.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#my_photo').attr('src', e.target.result);
+                    $("#removeimage").show();
+                    $("#Change").show();
+                    $("#fileupload-new").hide();
+                }
+
+                if (obj.files.length > 0) {
+                    reader.readAsDataURL(obj.files[0]);
+                }
+
+
+            }
+
+
+        }
+
+            //The file upload is NOT an image
+        else {
+            // $("#hdnimage").val("1");
+            alert("Photo only allows file types of JPG,PNG or BMP !!");
+
+            return false;
+
+            // sweetAlert("Oops...", "Photo only allows file types of  JPG!");
+
+        }
+
+    }
+    function checkextension() {
+        var ext = getFileExtension("ProfilePicture");
+        if (ext != "") {
+
+            if (ext == ".png" || ext == ".jpeg" || ext == ".jpg") {
+                return true;
+            } else {
+                alert("Only .png ,.jpeg or .jpg types allow !!");
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+    function getFileExtension(filename) {
+        var fileinput = document.getElementById(filename);
+        if (!fileinput)
+            return "";
+        var filename = fileinput.value;
+        if (filename.length == 0)
+            return "";
+        var dot = filename.lastIndexOf(".");
+        if (dot == -1)
+            return "";
+        var extension = filename.substr(dot, filename.length);
+        return extension;
+    }
+
+    function checkPersonalInfoValidation() {
+
+        var error_flag = true;
+
+        var txtFirstname = $("#txtFirstname").val().trim();
+        var txtLastname = $("#txtLastname").val().trim();
+
+        if (txtFirstname != "" && txtFirstname != null) {
+            $("#txtFirstname").removeClass("error1");
+        } else {
+            error_flag = false;
+            $("#txtFirstname").addClass("error1");
+        }
+
+        if (txtLastname != "" && txtLastname != null) {
+            $("#txtLastname").removeClass("error1");
+        } else {
+            error_flag = false;
+            $("#txtLastname").addClass("error1");
+        }
+
+        return error_flag;
+    }
+
+    $(document).on("click", "#btnProfileCancel", function () {
+
+        $("#txtFirstname").val("");
+        $("#txtLastname").val("");
+        $("#removeimage").trigger("click");
+
+    });
+
+</script>

@@ -1,0 +1,250 @@
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.pdb
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.xml
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\WebGrease.dll
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+D:\NILESH\ASP.NET\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.pdb
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\WebGrease.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+\\192.168.0.92\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\SDCOC.pdb
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\WebGrease.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\EntityFramework.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.Razor.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+\\ALIAN-PC11\Mina Xamarin Admin Panel\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+D:\binal\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+D:\binal\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+D:\binal\SDCOC\SDCOC\bin\SDCOC.dll
+D:\binal\SDCOC\SDCOC\bin\SDCOC.pdb
+D:\binal\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+D:\binal\SDCOC\SDCOC\bin\EntityFramework.dll
+D:\binal\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+D:\binal\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+D:\binal\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Http.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.Razor.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+D:\binal\SDCOC\SDCOC\bin\WebGrease.dll
+D:\binal\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+D:\binal\SDCOC\SDCOC\bin\EntityFramework.xml
+D:\binal\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+D:\binal\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Http.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.Razor.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+D:\binal\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\SDCOC.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\SDCOC.pdb
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\EntityFramework.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Http.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Razor.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\WebGrease.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\EntityFramework.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Http.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.Razor.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+D:\SDCOC_21_Aug_2017\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+D:\SDCOC\SDCOC\bin\SDCOC.dll
+D:\SDCOC\SDCOC\bin\SDCOC.pdb
+D:\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+D:\SDCOC\SDCOC\bin\EntityFramework.dll
+D:\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+D:\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+D:\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+D:\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+D:\SDCOC\SDCOC\bin\System.Web.Http.dll
+D:\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+D:\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+D:\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+D:\SDCOC\SDCOC\bin\System.Web.Razor.dll
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+D:\SDCOC\SDCOC\bin\WebGrease.dll
+D:\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+D:\SDCOC\SDCOC\bin\EntityFramework.xml
+D:\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+D:\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+D:\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+D:\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+D:\SDCOC\SDCOC\bin\System.Web.Http.xml
+D:\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+D:\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+D:\SDCOC\SDCOC\bin\System.Web.Razor.xml
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+D:\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+D:\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache
+D:\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+D:\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\SDCOC.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\SDCOC.pdb
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\Antlr3.Runtime.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.WebHost.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\EntityFramework.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\Microsoft.Web.Infrastructure.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\Newtonsoft.Json.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Net.Http.Formatting.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Helpers.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Http.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Http.WebHost.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Mvc.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Optimization.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Razor.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\WebActivator.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\WebGrease.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\Antlr3.Runtime.pdb
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.WebHost.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\EntityFramework.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\Newtonsoft.Json.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Optimization.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Net.Http.Formatting.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Helpers.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Http.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Http.WebHost.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Mvc.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.Razor.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.Deployment.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\System.Web.WebPages.Razor.xml
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\bin\WebActivator.pdb
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\obj\Debug\SDCOC.dll
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\obj\Debug\SDCOC.pdb
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.dll
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.dll
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.dll
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.WebHost.dll
+D:\binal\SDCOC\SDCOC\bin\WebActivator.dll
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.xml
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.xml
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.xml
+D:\binal\SDCOC\SDCOC\bin\AttributeRouting.Web.Http.WebHost.xml
+D:\binal\SDCOC\SDCOC\bin\WebActivator.pdb
+D:\binal\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache
+E:\Binal\Asp.net\18058948 - Xamarin Mobile application + Backend Admin Panel (Mina Henin)\SDCOC\SDCOC\obj\Debug\SDCOC.csprojResolveAssemblyReference.cache

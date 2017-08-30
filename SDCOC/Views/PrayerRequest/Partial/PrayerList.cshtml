@@ -1,0 +1,191 @@
+﻿@model List<SDCOC.Models.PrayerRequestDetails>
+@{
+    SDCOC.Models.Common cs = new SDCOC.Models.Common();
+    //int srno = 1;
+    int srno = Convert.ToInt32(ViewBag.StartNumber);
+}
+
+@if (Model != null)
+{
+    if (Model.Count > 0)
+    {   
+        <div id="tbllst">
+    <table class="table table-striped table-hover table-bordered user">
+        <thead>
+            <tr>
+                <th></th>
+                <th>User </th>
+                <th>Name</th>
+                <th>Prayer Request</th>
+                <th>Receive Date</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var pry in Model)
+            {
+                string messagetext = pry.PrayerRequestText;
+                if (messagetext.Length > 130)
+                {
+                    messagetext = messagetext.Substring(0, 130) + "...";
+                }
+                <tr>
+                    <td>@srno</td>
+                    <td>@pry.Firstname @pry.Lastname</td>
+                    <td>@pry.PrayerRequestName</td>
+                    <td>@messagetext </td>
+                    <td>
+                        @{ var bdate = ""; }
+                        @if (pry.ReceivedDate != null)
+                        {
+                            bdate = Convert.ToDateTime(pry.ReceivedDate).ToString("dd/MM/yyyy");
+                        }
+                        @bdate
+                    </td>
+                    <td>
+                        <a href="@Url.Action("PrayerView", "PrayerRequest", new { Id = @pry.PrayerRequestId })"  class="view" data-id="@pry.PrayerRequestId">
+                            <img src="~/assets/apps/img/view_icon.png" /></a>
+                        <a href="#basic" data-toggle="modal" class="trash" data-id="@pry.PrayerRequestId" data-staus="Active">
+                            <img src="~/assets/apps/img/trash_icon.png" /></a>
+                    </td>
+                </tr>
+                        srno++;
+            }
+        </tbody>
+    </table>
+            </div>
+    
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            <div class="dataTables_info" id="sample_editable_1_info" role="status" aria-live="polite">
+                <p>Showing @ViewBag.StartNumber to @ViewBag.EndingNumber of @ViewBag.TotalCount rows</p>
+            </div>
+        </div>
+        <div class="col-md-7 col-sm-7">
+            <div class="dataTables_paginate paging_bootstrap_number" id="sample_editable_1_paginate">
+                <ul class="pagination" style="visibility: visible;">
+                    @if (Convert.ToInt64(ViewBag.TotalPages) <= 1)
+                    {
+                        <li class="prev disabled">
+                            <a href="javascript:void(0);" title="Prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>                           
+                        <li class="active">
+                            <a href="javascript:void(0);" class="selected">1</a>
+                        </li>
+                        <li class="next disabled">
+                            <a href="javascript:void(0);" title="Next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        if (Convert.ToInt64(ViewBag.currentpage) > 1)
+                        {
+                        <li class="prev">
+                            <a href="javascript:void(0);" title="Prev" id="lstprveiouspage">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>
+                        }
+                        else
+                        {
+                        <li class="prev disabled">
+                            <a href="javascript:void(0);" title="Prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li> 
+
+                        }
+                        for (long i = 1; i <= Convert.ToInt64(ViewBag.TotalPages); i++)
+                        {
+                            if (Convert.ToInt64(ViewBag.PageNo) == i)
+                            {
+
+                            
+                        <li class="active">
+                            <a href="javascript:void(0);" class="selected">@i</a>
+                        </li>
+                            }
+                            else
+                            {
+                        <li><a href="javascript:void(0);" id="lstpageclick" data-page="@i">@i</a></li>
+                            }
+                        }
+                        if (Convert.ToInt64(ViewBag.TotalPages) != Convert.ToInt64(ViewBag.currentpage))
+                        {
+
+                        <li class="next">
+                            <a href="javascript:void(0);" title="Next" id="lstnextpage">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                        }
+                        else
+                        {
+                        <li class="next disabled">
+                            <a href="javascript:void(0);" title="Next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="PageNo" value="@ViewBag.PageNo" />
+    <input type="hidden" id="PageSize" value="@ViewBag.PageSize" />
+    <input type="hidden" id="SortColumn" value="@ViewBag.SortColumn" />
+    <input type="hidden" id="SortOrder" value="@ViewBag.SortOrder" />
+    <input type="hidden" id="selectrecords" value="@ViewBag.PageSize" />
+    }
+    else
+    {
+  <div id="tbllst">
+    <table class="table table-striped table-hover table-bordered user">
+        <thead>
+            <tr>
+                <th></th>
+                <th>User </th>
+                <th>Name</th>
+                <th>Prayer Request</th>
+                <th>Receive Date</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="6" style="text-align: center;">No Records!</th>
+            </tr>
+        </tbody>
+    </table>
+      </div>
+    
+    }
+}
+else
+{
+    <div id="tbllst">
+    <table class="table table-striped table-hover table-bordered user">
+        <thead>
+            <tr>
+                <th></th>
+                <th>User </th>
+                <th>Name</th>
+                <th>Prayer Request</th>
+                <th>Receive Date</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="6" style="text-align: center;">No Records!</th>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+}

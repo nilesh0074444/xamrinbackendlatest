@@ -1,0 +1,127 @@
+﻿
+<style>
+     span.label.label-danger {
+  
+    margin-top: 10px;
+}
+</style>
+<form>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Facebook Link</label>
+                <input class="form-control" type="text" id="txtFacebooklink" name="txtFacebooklink" value="@ViewBag.SocialConnect_FacebookLink">
+                <span class="label label-danger">eg.</span>
+                <span>http://facebook.com</span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Twittet Link</label>
+                <input class="form-control" type="text" id="txtTwitterlink" name="txtTwitterlink" value="@ViewBag.SocialConnect_TwitterLink">
+                <span class="label label-danger">eg.</span>
+                <span>http://twitter.com</span>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-actions">
+                @*  <a href="/Users" class="black-border pull-right">CANCEL</a>
+                <input type="submit" class="btn blue-border uppercase pull-right" value="Save">*@
+                @*<input type="submit" class="btn blue-border uppercase pull-right" value="Save">*@
+               
+                <a href="javascript:void(0);" class="btn blue-border uppercase pull-right" id="btnaddsociallinks">Save</a>
+                 <a href="javascript:void(0);" id="btnsociallinksCancel" class="black-border pull-right clear1">CANCEL</a>
+            </div>
+        </div>
+        <div class="col-sm-6" id="successmsg1" style="display: none;">
+            <div class="form-group">
+                <div class="alert alert-success" style="width: 227px; background-color: #fdfdfd; border-color: #fdfdfd;">
+                    <strong>Save successfully !</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script>
+
+    $(document).on("click", "#btnsociallinksCancel", function () {
+        window.location = "/Dashboard/Index";
+        //$("#txtFacebooklink").val("");
+        //$("#txtTwitterlink").val("");
+        //$("#successmsg1").hide();
+
+    });
+    function validatesociallinks(str) {
+        var tarea = str;
+        var tarea_regex = /^(http|https)/;
+        return tarea_regex.test(String(tarea).toLowerCase());
+    }
+    $(document).on("click", "#btnaddsociallinks", function () {
+        var txtFacebooklink = $("#txtFacebooklink").val().trim();
+        var txtTwitterlink = $("#txtTwitterlink").val().trim();
+        if (txtFacebooklink == "" || txtTwitterlink == "") {
+            if (txtFacebooklink == "") {
+                $("#txtFacebooklink").addClass("error1");
+            } else {
+                $("#txtFacebooklink").removeClass("error1");
+            }
+            if (txtTwitterlink == "") {
+                $("#txtTwitterlink").addClass("error1");
+            } else {
+                $("#txtTwitterlink").removeClass("error1");
+            }
+
+            return false;
+        }
+        else {
+            if (validatesociallinks($("#txtFacebooklink").val()) && validatesociallinks($("#txtTwitterlink").val())) {
+                var sturl = '@Url.Action("SaveSocialConnect")';
+
+                $.ajax({
+                    url: sturl,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'FacebookLink': $("#txtFacebooklink").val(),
+                        'TwitterLink': $("#txtTwitterlink").val()
+
+                    },
+                    success: function (data) {
+                        if (data == "success") {
+
+                            $("#successmsg1").show();
+
+                        } else {
+
+                            alert(data);
+                            return false;
+
+                        }
+                    },
+                    error: function (e) {
+
+                        alert("An error has occured ! ");
+                        return false;
+                    }
+                });
+            } else {
+                if (!validatesociallinks($("#txtFacebooklink").val())) {
+                    $("#txtFacebooklink").addClass("error1");
+                }
+                if (!validatesociallinks($("#txtTwitterlink").val())) {
+                    $("#txtTwitterlink").addClass("error1");
+                }
+            }
+        }
+
+
+    });
+    $(document).on("focus", "#txtTwitterlink", function () {
+        $("#txtTwitterlink").removeClass("error1");
+    });
+    $(document).on("focus", "#txtFacebooklink", function () {
+        $("#txtFacebooklink").removeClass("error1");
+    });
+</script>

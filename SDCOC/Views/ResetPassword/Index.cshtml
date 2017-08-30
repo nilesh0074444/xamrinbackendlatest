@@ -1,0 +1,258 @@
+﻿@{
+    ViewBag.Title = "ResetPassword";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- BEGIN LOGIN FORM -->
+
+<style>
+    .form_error {
+        color:#b30610;
+    }
+    .error{
+        border:1px solid #b30610;
+    }
+    span.label.label-danger {
+    border-radius: 50px !important;
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    margin-top: 10px;
+}
+</style>
+@using (Ajax.BeginForm("SavePassword", "Login", new AjaxOptions { OnBegin = "return fnLoginValidation();", OnSuccess = "SuccessLogin(data);", HttpMethod = "POST" }, new { id = "frmLogin" }))
+{
+
+    <h3 class="form-title">Reset Password</h3>
+    <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+        <span>Enter valid username and password. </span>
+    </div>
+    
+    <div class="alert alert-success display-hide">
+        <strong>Password changed successfully !</strong>
+    </div>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="input-icon">
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password*" name="password" id="txtNewPassword" value="" maxlength="12" />
+        </div>
+         <span id="error_newpassword" class="display-hide form_error"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Confirm Password</label>
+        <div class="input-icon">
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Confirm Password*" name="confirmpassword" id="txtConfirmPassword" value="" maxlength="12" />
+        </div>
+         <span id="error_confirmpassword" class="display-hide form_error"></span>
+    </div>
+    <input type="hidden" id="hdnuid" name="hdnuid" value="@ViewBag.UserID" />
+    <input type="hidden" id="hdncodid" name="hdncodid" value="@ViewBag.ResetCode" />    
+    <div class="form-actions">
+        <button type="submit" class="btn green pull-right">Submit</button>
+    </div>
+     
+}
+
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+<script>
+   function clearalltext()
+    {
+       $("#error_newpassword").text("");
+       $("#error_confirmpassword").text("");
+   }
+   function hasWhiteSpace(s) {
+       return /\s/g.test(s);
+   }
+
+   $(document).on("focus", "#txtNewPassword", function () { clearalltext(); });
+   $(document).on("focus", "#txtConfirmPassword", function () { clearalltext(); });
+
+    function fnLoginValidation() {
+        // validation
+       
+
+        var NewPassword = $("#txtNewPassword").val().trim();
+        var ConfirmPassword = $("#txtConfirmPassword").val().trim();
+
+        var error_flag = true;
+
+        if (NewPassword != "" && NewPassword != null) {
+
+            //if (NewPassword.length < 6 || NewPassword.length > 12) {
+            //    error_flag = false;
+            //    $("#txtNewPassword").addClass("error1");
+            //    $("#error_newpassword").text("Password must between 6 to 12 character").show();
+            //}
+            //else {
+            //    $("#error_newpassword").hide();
+            //    $("#txtNewPassword").removeClass("error1");
+            //}
+
+
+            var decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,12}$/;
+            if ($("#txtNewPassword").val().length <= 8) {
+                $("#txtNewPassword").addClass("error1");
+                $("#error_newpassword").text('Password must be contains at least 6 characters long,a lowercase letter,an uppercase letter and a number or special character!').show();
+               
+                return false;
+            }
+            var strspace = hasWhiteSpace($("#txtNewPassword").val());
+            if (strspace) {
+                $("#txtNewPassword").addClass("error1");
+                $("#error_newpassword").text('Password must not contains blank space!').show();
+
+                return false;
+            }
+            var regex = /^(?=.*[a-z]).+$/;
+
+            if (!regex.test($("#txtNewPassword").val())) {
+                $("#txtNewPassword").addClass("error1");
+                $("#error_newpassword").text('Password must be contains at least 6 characters long,a lowercase letter,an uppercase letter and a number or special character!').show();
+                
+                return false;
+            }
+            var regex = /^(?=.*[A-Z]).+$/;
+
+            if (!regex.test($("#txtNewPassword").val())) {
+                $("#txtNewPassword").addClass("error1");
+                $("#error_newpassword").text('Password must be contains at least 6 characters long,a lowercase letter,an uppercase letter and a number or special character!').show();
+                
+                return false;
+            }
+
+            var regex = /^(?=.*[0-9_\W]).+$/;
+
+            if (!regex.test($("#txtNewPassword").val())) {
+                $("#txtNewPassword").addClass("error1");
+                $("#error_newpassword").text('Password must be contains at least 6 characters long,a lowercase letter,an uppercase letter and a number or special character!').show();
+
+                
+                return false;
+
+
+            }
+
+        } else {
+            error_flag = false;
+            $("#error_newpassword").hide();
+            $("#txtNewPassword").addClass("error1");
+        }
+
+       
+
+        if (ConfirmPassword != "" && ConfirmPassword != null) {
+            $("#txtConfirmPassword").removeClass("error1");
+        } else {
+            error_flag = false;
+            $("#txtConfirmPassword").addClass("error1");
+        }
+        if (error_flag == true) {
+            if (NewPassword != "" && ConfirmPassword != "") {
+                if (NewPassword != ConfirmPassword) {
+                    error_flag = false;
+                    $("#txtNewPassword").addClass("error1");
+                    $("#txtConfirmPassword").addClass("error1");
+                    $("#error_confirmpassword").text("Password and Confirm Password must be same").show();
+                }
+                else {
+                    $("#error_confirmpassword").hide();
+                    $("#txtNewPassword").removeClass("error1");
+                    $("#txtConfirmPassword").removeClass("error1");
+                }
+            }
+        }
+
+        if (error_flag == true) {
+            //$("#dv_loaderimg").show();
+            App.startPageLoading({ animate: true });
+        }
+
+        return error_flag;
+
+
+    }
+    function SuccessLogin(data) {
+        if (data.trim() == "success") {
+            $(".alert-danger").hide();
+            $(".alert-success").show();
+
+            window.setTimeout(function () {
+                App.stopPageLoading();
+            }, 2000);
+
+            window.location.href = '@Url.Action("Index", "Dashboard")';
+        }
+        else if (data.trim() == "fail") {
+            $(".alert-danger").show();
+            $(".alert-success").hide();
+            window.setTimeout(function () {
+                App.stopPageLoading();
+            }, 2000);
+        } else {
+            $(".alert.alert-danger").text(data.trim());
+            $(".alert-danger").show();
+            $(".alert-success").hide();
+            window.setTimeout(function () {
+                App.stopPageLoading();
+            }, 2000);
+        }
+
+    }
+
+    $(function () {
+        // Setup form validation on Login form
+        $("#frmLogin").validate({
+            // Specify the validation rules
+            rules: {
+                username: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+
+            // Specify the validation error messages
+            messages: {
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 6 characters long"
+                },
+                email: "Please enter a valid email address"
+            },
+
+            success: function (label) {
+                //alert("label = " + label);
+            },
+        });
+
+        // Setup form validation on Forget Password form
+        $("#frmForgetPassword").validate({
+            // Specify the validation rules
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+
+            // Specify the validation error messages
+            messages: {
+                email: "Please enter a valid email address"
+            },
+
+            success: function (label) {
+                //alert("label = " + label);
+            },
+        });
+
+
+
+    });
+
+</script>

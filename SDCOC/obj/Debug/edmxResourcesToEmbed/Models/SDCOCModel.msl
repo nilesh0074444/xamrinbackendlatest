@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="alianwindows_sdcocModelStoreContainer" CdmEntityContainer="SDCOCEntities">
+    <EntitySetMapping Name="ScheduleCategories">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.ScheduleCategory">
+        <MappingFragment StoreEntitySet="ScheduleCategory">
+          <ScalarProperty Name="ScheduleTypeId" ColumnName="ScheduleTypeId" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="ISdeleted" ColumnName="ISdeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AdminUser">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_AdminUser">
+        <MappingFragment StoreEntitySet="tbl_AdminUser">
+          <ScalarProperty Name="AdminUserId" ColumnName="AdminUserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="ResetCode" ColumnName="ResetCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Connect">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Connect">
+        <MappingFragment StoreEntitySet="tbl_Connect">
+          <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Donation">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Donation">
+        <MappingFragment StoreEntitySet="tbl_Donation">
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DonationHistory">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_DonationHistory">
+        <MappingFragment StoreEntitySet="tbl_DonationHistory">
+          <ScalarProperty Name="DonationHistoryId" ColumnName="DonationHistoryId" />
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CVVCode" ColumnName="CVVCode" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_MessageNotification">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MessageNotification">
+        <MappingFragment StoreEntitySet="tbl_MessageNotification">
+          <ScalarProperty Name="MessageNotificationId" ColumnName="MessageNotificationId" />
+          <ScalarProperty Name="MessageReceivedUserId" ColumnName="MessageReceivedUserId" />
+          <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="MessageReceivedDate" ColumnName="MessageReceivedDate" />
+          <ScalarProperty Name="MessageSendUserId" ColumnName="MessageSendUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_MessageSubject">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MessageSubject">
+        <MappingFragment StoreEntitySet="tbl_MessageSubject">
+          <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="MessageFrom" ColumnName="MessageFrom" />
+          <ScalarProperty Name="MessageTo" ColumnName="MessageTo" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="MessageSendDate" ColumnName="MessageSendDate" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_MinistryInterests">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_MinistryInterests">
+        <MappingFragment StoreEntitySet="tbl_MinistryInterests">
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_NewsEvents">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_NewsEvents">
+        <MappingFragment StoreEntitySet="tbl_NewsEvents">
+          <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_OtherNotification">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_OtherNotification">
+        <MappingFragment StoreEntitySet="tbl_OtherNotification">
+          <ScalarProperty Name="OtherNotificationId" ColumnName="OtherNotificationId" />
+          <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+          <ScalarProperty Name="NotificationReceivedUserId" ColumnName="NotificationReceivedUserId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NotificationReceivedDate" ColumnName="NotificationReceivedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PrayerRequest">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_PrayerRequest">
+        <MappingFragment StoreEntitySet="tbl_PrayerRequest">
+          <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Schedule">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Schedule">
+        <MappingFragment StoreEntitySet="tbl_Schedule">
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventStartTime" ColumnName="EventStartTime" />
+          <ScalarProperty Name="EventEndTime" ColumnName="EventEndTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ScheduleCategory_ID" ColumnName="ScheduleCategory_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Setting">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Setting">
+        <MappingFragment StoreEntitySet="tbl_Setting">
+          <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+          <ScalarProperty Name="ChurchAddress" ColumnName="ChurchAddress" />
+          <ScalarProperty Name="SocialConnect_FacebookLink" ColumnName="SocialConnect_FacebookLink" />
+          <ScalarProperty Name="SocialConnect_TwitterLink" ColumnName="SocialConnect_TwitterLink" />
+          <ScalarProperty Name="Livestream_FacebookLink" ColumnName="Livestream_FacebookLink" />
+          <ScalarProperty Name="Livestream_YoutubeLink" ColumnName="Livestream_YoutubeLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Subjects">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Subjects">
+        <MappingFragment StoreEntitySet="tbl_Subjects">
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="SubjectUserId" ColumnName="SubjectUserId" />
+          <ScalarProperty Name="SubjectCreatedDate" ColumnName="SubjectCreatedDate" />
+          <ScalarProperty Name="SubjectCreatedBy" ColumnName="SubjectCreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsReceiveEmailSMS" ColumnName="IsReceiveEmailSMS" />
+          <ScalarProperty Name="ReceivedOTP" ColumnName="ReceivedOTP" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_Dashboard_Connect_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Connect_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_Connect_Details_Result">
+          <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Dashboard_PrayerRequest_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_PrayerRequest_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_PrayerRequest_Details_Result">
+          <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Dashboard_Total_Donation_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Total_Donation_Details" />
+    <FunctionImportMapping FunctionImportName="Get_Dashboard_Total_Users_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Total_Users_Details" />
+    <FunctionImportMapping FunctionImportName="Get_Dashboard_Upcoming_NewsEvents_Details" FunctionName="alianwindows_sdcocModel.Store.Get_Dashboard_Upcoming_NewsEvents_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Dashboard_Upcoming_NewsEvents_Details_Result">
+          <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_ScheduleCategory_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_ScheduleCategory_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_ScheduleCategory_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="ScheduleTypeId" ColumnName="ScheduleTypeId" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="ISdeleted" ColumnName="ISdeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_Connect_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Connect_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Connect_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="ConnectId" ColumnName="ConnectId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_Donation_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Donation_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Donation_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_DonationHistory_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_DonationHistory_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_DonationHistory_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="DonationHistoryId" ColumnName="DonationHistoryId" />
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CVVCode" ColumnName="CVVCode" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_MessageNotification_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_MessageNotification_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_MessageNotification_Details_Result">
+          <ScalarProperty Name="MessageNotificationId" ColumnName="MessageNotificationId" />
+          <ScalarProperty Name="MessageReceivedUserId" ColumnName="MessageReceivedUserId" />
+          <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="MessageReceivedDate" ColumnName="MessageReceivedDate" />
+          <ScalarProperty Name="MessageSendUserId" ColumnName="MessageSendUserId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_MinistryInterests_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_MinistryInterests_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_MinistryInterests_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_NewsEvents_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_NewsEvents_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_NewsEvents_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="NewsEventId" ColumnName="NewsEventId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Eventdate" ColumnName="Eventdate" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_OtherNotification_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_OtherNotification_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_OtherNotification_Details_Result">
+          <ScalarProperty Name="OtherNotificationId" ColumnName="OtherNotificationId" />
+          <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+          <ScalarProperty Name="NotificationReceivedUserId" ColumnName="NotificationReceivedUserId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NotificationReceivedDate" ColumnName="NotificationReceivedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_PrayerRequest_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_PrayerRequest_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_PrayerRequest_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="PrayerRequestId" ColumnName="PrayerRequestId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="PrayerRequestText" ColumnName="PrayerRequestText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_Schedule_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Schedule_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Schedule_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventStartTime" ColumnName="EventStartTime" />
+          <ScalarProperty Name="EventEndTime" ColumnName="EventEndTime" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ScheduleCategory_ID" ColumnName="ScheduleCategory_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_Subjects_MessagesOrderBY_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Subjects_MessagesOrderBY_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Subjects_MessagesOrderBY_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="SubjectUserId" ColumnName="SubjectUserId" />
+          <ScalarProperty Name="SubjectCreatedDate" ColumnName="SubjectCreatedDate" />
+          <ScalarProperty Name="SubjectCreatedBy" ColumnName="SubjectCreatedBy" />
+          <ScalarProperty Name="LastMessage" ColumnName="LastMessage" />
+          <ScalarProperty Name="MessageSendDate" ColumnName="MessageSendDate" />
+          <ScalarProperty Name="IsReaded" ColumnName="IsReaded" />
+          <ScalarProperty Name="MessageSubjectId" ColumnName="MessageSubjectId" />
+          <ScalarProperty Name="MessageTo" ColumnName="MessageTo" />
+          <ScalarProperty Name="MessageFrom" ColumnName="MessageFrom" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAll_tbl_Users_Details" FunctionName="alianwindows_sdcocModel.Store.GetAll_tbl_Users_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.GetAll_tbl_Users_Details_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="ROWNUM" ColumnName="ROWNUM" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsReceiveEmailSMS" ColumnName="IsReceiveEmailSMS" />
+          <ScalarProperty Name="ReceivedOTP" ColumnName="ReceivedOTP" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Update_tbl_MessageNotification" FunctionName="alianwindows_sdcocModel.Store.Update_tbl_MessageNotification" />
+    <FunctionImportMapping FunctionImportName="Update_tbl_OtherNotification" FunctionName="alianwindows_sdcocModel.Store.Update_tbl_OtherNotification" />
+    <FunctionImportMapping FunctionImportName="Get_EditDonationDetails" FunctionName="alianwindows_sdcocModel.Store.Get_EditDonationDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_EditDonationDetails_Result">
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+          <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+          <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Ministry_Assigned_Users">
+      <EntityTypeMapping TypeName="alianwindows_sdcocModel.tbl_Ministry_Assigned_Users">
+        <MappingFragment StoreEntitySet="tbl_Ministry_Assigned_Users">
+          <ScalarProperty Name="FK_MinistryId" ColumnName="FK_MinistryId" />
+          <ScalarProperty Name="FK_User_ID" ColumnName="FK_User_ID" />
+          <ScalarProperty Name="Assign_MinistryId" ColumnName="Assign_MinistryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_Assigned_Unassigned_tbl_MinistryInterests" FunctionName="alianwindows_sdcocModel.Store.Get_Assigned_Unassigned_tbl_MinistryInterests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_Assigned_Unassigned_tbl_MinistryInterests_Result">
+          <ScalarProperty Name="MinistryId" ColumnName="MinistryId" />
+          <ScalarProperty Name="MinistryTitle" ColumnName="MinistryTitle" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Assign_MinistryId" ColumnName="Assign_MinistryId" />
+          <ScalarProperty Name="FK_User_ID" ColumnName="FK_User_ID" />
+          <ScalarProperty Name="FK_MinistryId" ColumnName="FK_MinistryId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Delete_Assigned_Unassigned_tbl_MinistryInterests" FunctionName="alianwindows_sdcocModel.Store.Delete_Assigned_Unassigned_tbl_MinistryInterests" />
+    <FunctionImportMapping FunctionImportName="Get_DonationautoRecurrringeditgetlastpaydetails" FunctionName="alianwindows_sdcocModel.Store.Get_DonationautoRecurrringeditgetlastpaydetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="alianwindows_sdcocModel.Get_DonationautoRecurrringeditgetlastpaydetails_Result">
+          <ScalarProperty Name="DonationId" ColumnName="DonationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsAutoRecurring" ColumnName="IsAutoRecurring" />
+          <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+          <ScalarProperty Name="DonatedAmount" ColumnName="DonatedAmount" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

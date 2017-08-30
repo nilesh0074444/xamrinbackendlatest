@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "ViewMessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .chatdetailstextarea {
+      width: 100%;
+    display: inline-block;
+    background: #e9edef;
+    padding: 18px;
+}
+   .chatdetailstextarea input.txtchat {
+    width: 95%;
+}
+   input.btnchatsubmit {
+    background-color: #0c3059;
+    color: white;
+    border: 1px solid #0c3059;
+       width: 70px;
+
+}
+    .chatdetails {       display: inline-block;
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+    height: 650px;
+    }
+    .chatmessagedetails {
+         display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px;
+    }
+   .chatmessagedetails .chatright {
+    float: right;
+    background-color: #b1c8e2;
+    width: 90%;
+    padding: 15px;
+}
+
+    .chatmessagedetails .chatleft {
+            background-color: #e9edef;
+    width: 90%;
+    padding: 15px;
+    float: left;
+}
+
+  .chatmessagedetails .chatdate {
+    text-align: center;
+}
+
+</style>
+<div class="page-bar">
+    <ul class="page-breadcrumb messages">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Messages</span>
+        </li>
+        <li><span>@ViewBag.UserName</span></li>
+        <li>
+            <span>@ViewBag.SubjectName</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+    <input type="hidden" id="hdnuserid" name="hdnuserid" value="@ViewBag.UserID" />
+</div>
+<h1 class="page-title">@ViewBag.SubjectName </h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject sbold uppercase"></span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chatdetails" id="chatdetails">
+                            @Html.Action("LoadMessages","Messages",new {Id=@ViewBag.SubjectID})
+                        </div>
+                        <div class="chatdetailstextarea">
+                            <input type="text" id="txtchat" name="txtchat" class="txtchat" />
+                            <input type="button" id="btnchatsubmit" value="Send" class="btnchatsubmit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hdnsubjectid" name="hdnsubjectid" value="@ViewBag.SubjectID" />
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).on("click", "#btnchatsubmit", function () {
+        var txtchat = $("#txtchat").val();
+     
+
+        if (txtchat == "") {
+            if (txtchat == "") {
+                $("#txtchat").addClass("error1");
+            } else {
+                $("#txtchat").removeClass("error1");
+            }
+            return false;
+        }
+        else {
+            var sturl = '@Url.Action("SendMessages")';
+            $.ajax({
+                url: sturl,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'ID': $("#hdnsubjectid").val(),
+                    'messages': $("#txtchat").val()
+                },
+                success: function (data) {
+                    if (data == "success") {                       
+                        var querystring = "?Id=" + $("#hdnsubjectid").val();
+                        $("#chatdetails").load("/Messages/LoadMessages" + querystring, function () {
+                            $("#txtchat").val("");
+                        });
+                    } else {
+                        alert(data);
+                        return false;
+
+                    }
+                },
+                error: function (e) {
+
+                    alert("An error has occured ! ");
+                    return false;
+                }
+            });
+        }
+    });
+    $(document).on("focus", "#txtchat", function () {
+        $("#txtchat").removeClass("error1");
+    });
+</script>

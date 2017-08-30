@@ -1,0 +1,337 @@
+﻿@{
+   // ViewBag.Title = "AddSchedule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<SDCOC.Models.ScheduleCategeoryDetails> lstCategeoryDetails = ViewData["lstscheduleCategoryDetails"] as List<SDCOC.Models.ScheduleCategeoryDetails>;
+}
+@model List<SDCOC.Models.ScheduleDetails>
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Schedule</span>
+        </li>
+         <li>
+              <i class="fa fa-circle"></i>
+             
+            <span>@ViewBag.Title</span>
+           
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        @*<div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+            <i class="fa fa-calendar"></i>
+            <span class="thin uppercase hidden-xs"></span>
+            <i class="fa fa-angle-down"></i>
+        </div>*@
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+<h2 class="page_title">@ViewBag.Title</h2>
+
+<div class="edit_user">
+    <div class="row">
+        @if (ViewBag.pkScheduleid == 0)
+        {
+            <div class="col-sm-6">
+
+            @using (Html.BeginForm("SaveScheduleDetails", "Schedule", FormMethod.Post, new { ID = "theFormId", enctype = "multipart/form-data", onsubmit = "return checkvalidation();" }))
+            {
+    <div class="row">
+        <input type="hidden" id="pkScheduleid" name="pkScheduleid" value="@ViewBag.pkScheduleid" />
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Title*</label>
+                <input class="form-control" type="text" placeholder="Title" id="txtTitle" name="txtTitle" value="" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group schedule">
+                <label class="control-label">Date*</label>
+                <input class="form-control form-control-inline date-picker" size="16" type="text" placeholder="Schedule date" id="txtscheduledate" name="txtscheduledate" value="" />
+                <span class="input-group-btn"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Categories*</label>
+                <select class="form-control" id="txtCategories" name="txtCategories">
+                    <option value="-1">Select Category</option>
+                    @foreach (var i in lstCategeoryDetails)
+                    {
+                        <option value="@i.ScheduleTypeId">@i.ScheduleType</option>
+                    }
+                </select>
+                
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">Start Time*</label>
+                        <input type="text" class="form-control timepicker timepicker-no-seconds" id="txtstarttime" name="txtstarttime">
+                        <span class="input-group-btn input-group-btn1"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">End Time*</label>
+                        <input type="text" class="form-control timepicker timepicker-no-seconds" id="txtendtime" name="txtendtime">
+                        
+                        <span class="input-group-btn input-group-btn2"></span>
+                        @*<select class="form-control">
+                            <option>Select Time</option>
+                            <option>09:00 Pm</option>
+                        </select>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="control-label">Description*</label>
+                <textarea class="form-control" placeholder="Description" id="txtDescription" name="txtDescription"></textarea>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-actions">
+                
+                 <a href='@Url.Action("Index", "Schedule")' class="btn black-border uppercase pull-right" >Cancel</a>                
+                <input type="submit" class="btn blue-border uppercase pull-right" value="Save" />
+               
+            </div>
+        </div>
+    </div>
+
+            }
+        </div>
+        }
+        else
+        {
+          <div class="col-sm-6">
+
+            @using (Html.BeginForm("SaveScheduleDetails", "Schedule", FormMethod.Post, new { ID = "theFormId", enctype = "multipart/form-data", onsubmit = "return checkvalidation();" }))
+            {
+    <div class="row">
+        <input type="hidden" id="pkScheduleid" name="pkScheduleid" value="@ViewBag.pkScheduleid" />
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Title*</label>
+                <input class="form-control" type="text" placeholder="Title" id="txtTitle" name="txtTitle" value="@Model.FirstOrDefault().Title" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group schedule">
+                <label class="control-label">Date*</label>
+                <input class="form-control form-control-inline date-picker" size="16" type="text" placeholder="Event date" id="txtscheduledate" name="txtscheduledate" value="@Model.FirstOrDefault().EventDate.Value.Date.ToShortDateString()" />
+                <span class="input-group-btn"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Categories*</label>
+                <select class="form-control" id="txtCategories" name="txtCategories">
+                    <option value="-1">Select Category</option>
+                    @foreach (var i in lstCategeoryDetails)
+                    {
+                        <option value="@i.ScheduleTypeId">@i.ScheduleType</option>
+                    }
+                </select>
+                <input type="hidden" id="hdnCategoryId" name="hdnCategoryId" value="@Model.FirstOrDefault().ScheduleCategory_ID" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">Start Time*</label>
+                        <input type="text" class="form-control timepicker timepicker-no-seconds" id="txtstarttime" name="txtstarttime" value="@Model.FirstOrDefault().EventStartTime">
+                         <input type="hidden" id="hdnEventStartTime" name="hdnEventStartTime" value="@Model.FirstOrDefault().EventStartTime" />
+                        <span class="input-group-btn"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">End Time*</label>
+                        <input type="text" class="form-control timepicker timepicker-no-seconds" id="txtendtime" name="txtendtime" value="@Model.FirstOrDefault().EventEndTime">
+                        <input type="hidden" id="hdnEventEndTime" name="hdnEventEndTime" value="@Model.FirstOrDefault().EventEndTime"  />
+                        <span class="input-group-btn"></span>
+                        @*<select class="form-control">
+                            <option>Select Time</option>
+                            <option>09:00 Pm</option>
+                        </select>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="control-label">Description*</label>
+                <textarea class="form-control" placeholder="Description" id="txtDescription" name="txtDescription">@Model.FirstOrDefault().Description</textarea>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-actions">
+               
+                 <a href='@Url.Action("Index", "Schedule")' class="btn black-border uppercase pull-right" >Cancel</a>                
+                <input type="submit" class="btn blue-border uppercase pull-right" value="Save" />
+               
+            </div>
+        </div>
+    </div>
+
+            }
+        </div>
+        }
+    </div>
+</div>
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<link href="~/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+<script src="~/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script>
+    //$(".timepicker-no-seconds").timepicker();
+    $(".timepicker-no-seconds").timepicker({
+        showInputs: false
+    });
+    $(window).load(function () {
+        if ($("#pkScheduleid").val() != "0") {
+            
+            $("#txtCategories").val($("#hdnCategoryId").val());
+        }
+
+     
+    });
+
+ function checkvalidation() {
+       
+        var str = false;
+
+        var txtTitle = $("#txtTitle").val().trim();
+        var txtscheduledate = $("#txtscheduledate").val().trim();
+        var txtCategories = $("#txtCategories").val().trim();
+        var txtstarttime = $("#txtstarttime").val().trim();
+        var txtendtime = $("#txtendtime").val().trim();
+        var txtDescription = $("#txtDescription").val().trim();
+
+        if (txtTitle == "" || txtscheduledate == "" || txtCategories == "-1" || txtstarttime == "" || txtendtime == "" || txtDescription=="") {
+
+            if (txtTitle == "") {
+                $("#txtTitle").addClass("error1");
+            } else {
+                $("#txtTitle").removeClass("error1");
+            }
+
+            if (txtscheduledate == "") {
+                $("#txtscheduledate").addClass("error1");
+            } else {
+                $("#txtscheduledate").removeClass("error1");
+            }
+
+            if (txtCategories == "-1") {
+                $("#txtCategories").addClass("error1");
+            } else {
+                $("#txtCategories").removeClass("error1");
+            }
+
+            if (txtstarttime == "") {
+                $("#txtstarttime").addClass("error1");
+            } else {
+                $("#txtstarttime").removeClass("error1");
+            }
+
+            if (txtendtime == "") {
+                $("#txtendtime").addClass("error1");
+            } else {
+                $("#txtendtime").removeClass("error1");
+            }
+
+            if (txtDescription == "") {
+                $("#txtDescription").addClass("error1");
+            } else {
+                $("#txtDescription").removeClass("error1");
+            }
+
+            str = false;
+
+            return str;
+
+        }
+        else {
+            
+            return true;
+
+
+
+        }
+    }
+ function isValidDate(txtdate) {
+        var txtDate = "#" + txtBirthdate;
+        var dateString = $(txtDate).val();
+        var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+        if (!(date_regex.test(dateString))) {
+            alert("Birthdate must be in MM/DD/YYYY format");
+            return false;
+        } else {
+            return true;
+        }
+ }
+
+ $(document).ready(function () {
+    
+     $('#txtscheduledate').datepicker({
+         startDate: new Date()
+     });
+     $(document).on('click', '.schedule', function () {
+         $('#txtscheduledate').trigger('focus');
+     });
+     $(document).on('click', ".input-group-btn1", function () {
+         $('#txtstarttime').trigger('focus');
+     });
+     $(document).on('click', ".input-group-btn2", function () {
+         $('#txtendtime').trigger('focus');
+     });
+     $("#txtstarttime").keydown(function (e) {
+         e.preventDefault();
+     });
+     $("#txtendtime").keydown(function (e) {
+         e.preventDefault();
+     });
+         $("#txtscheduledate").keydown(function (e) {
+         e.preventDefault();
+     });
+     
+     $("#txtscheduledate").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtendtime").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtstarttime").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtscheduledate").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtendtime").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtTitle").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtDescription").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+     $("#txtCategories").focus(function (e) {
+         $(this).removeClass("error1");
+     });
+ });
+</script>

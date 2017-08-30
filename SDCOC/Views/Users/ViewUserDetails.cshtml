@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "ViewUserDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+
+}
+@model List<SDCOC.Models.UserDetails>
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Users")"><span>Users</span></a>
+        </li>
+        <li>
+            <i class="fa fa-circle"></i>
+            <span>View User Details</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+       @* <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+            <i class="fa fa-calendar"></i>
+            <span class="thin uppercase hidden-xs"></span>
+            <i class="fa fa-angle-down"></i>
+        </div>*@
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+
+
+<h1 class="page-title">Users </h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject sbold uppercase">View User Details</span>
+                </div>
+
+            </div>
+            <div class="portlet-body viewdetailsusermain">
+                <a href="@Url.Action("Index", "Users")" class="back_btn">Back</a>
+                @if (Model != null)
+                {
+                    if (Model.Count > 0)
+                    { <div class="viewdetailsuser view_detailsuser_custom">
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Model.FirstOrDefault().ProfileImage)))
+                        {
+
+                            string imgpath = "../../Images/UserImages/ProfileImages/" + Model.FirstOrDefault().ProfileImage;
+                            <img src="@imgpath" alt="" class="img-circle" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/UserImages/ProfileImages/no-image.png" />
+                        }
+                    </div>
+                   
+                    <table class="table table-striped table-hover table-bordered user">
+                        <tr>
+                            <th>First Name:</th>
+                            <td>@Model.FirstOrDefault().Firstname</td>
+                        </tr>
+                        <tr>
+                            <th>Last Name:</th>
+                            <td>@Model.FirstOrDefault().Lastname</td>
+                        </tr>
+                        <tr>
+                            <th>Email Id:</th>
+                            <td>@Model.FirstOrDefault().EmailId</td>
+                        </tr>
+                        <tr>
+                            <th>Mobile Number:</th>
+                            <td>@Model.FirstOrDefault().MobileNumber</td>
+                        </tr>
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Model.FirstOrDefault().Birthdate)))
+                        {
+                            <tr>
+                                <th>Birth Date:</th>
+                                <td>@Model.FirstOrDefault().Birthdate.Value.ToShortDateString()</td>
+                            </tr>
+                        }
+                        <tr>
+                            <th>Address:</th>
+                            <td>@Model.FirstOrDefault().Address</td>
+                        </tr>
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Model.FirstOrDefault().CreatedDate)))
+                        {
+                            <tr>
+                                <th>Created Date:</th>
+                                <td>@Model.FirstOrDefault().CreatedDate.Value.ToShortDateString()</td>
+                            </tr>
+                        }
+                    </table>
+                    }
+                }
+                <a href="@Url.Action("Index", "Users")" class="back_btn">Back</a>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>

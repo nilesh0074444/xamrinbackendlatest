@@ -1,0 +1,266 @@
+﻿@{
+    ViewBag.Title = "ViewDonationDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<SDCOC.Models.EditDonationDetails>
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Donation")">Donation </a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Edit</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range1" class="pull-right tooltips btn-sm" data-container="body" data-placement="bottom">
+            <i class="icon-calendar"></i>&nbsp; 
+            <span class="thin hidden-xs clsCurrentDate"></span>&nbsp;  
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+
+<h2 class="page-title">Edit</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="portlet light">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="single_detail">
+                        <label>User</label>
+                        <span>@Model.FirstOrDefault().Username</span>
+                    </div>
+                    <div class="single_detail">
+                        <label>First Name</label>
+                        <span>@Model.FirstOrDefault().Firstname</span>
+                    </div>
+                    <div class="single_detail">
+                        <label>Last Name</label>
+                        <span>@Model.FirstOrDefault().Lastname</span>
+                    </div>
+                    <div class="single_detail">
+                        <label>Mobile Number</label>
+                        <span>@Model.FirstOrDefault().MobileNumber</span>
+                    </div>
+                    <div class="single_detail">
+                        <label>Email</label>
+                        <span>@Model.FirstOrDefault().EmailId</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="single_detail">
+                        <label>Donation($)	</label>
+                        <span>@Model.FirstOrDefault().DonatedAmount</span>
+                    </div>
+                    <div class="single_detail">
+                        <label>Donation Date</label>
+                        <span>@{ var bdate = ""; }
+                            @if (Model.FirstOrDefault().DonationDate != null)
+                            {
+                                bdate = Convert.ToDateTime(Model.FirstOrDefault().DonationDate).ToString("dd/MM/yyyy");
+                            }
+                            @bdate
+                        </span>
+                    </div>
+                    @* <div class="single_detail">
+                        <label>Status</label>
+                        <a href="javascript:void(0);" id="activeinactive" class="active">Active</a>
+                    </div>*@
+                    @if (!string.IsNullOrEmpty(Convert.ToString(Model.FirstOrDefault().IsAutoRecurring)))
+                    {
+                        if (Convert.ToBoolean(Model.FirstOrDefault().IsAutoRecurring) == false)
+                        {
+                        <div class="single_detail">
+                            <label class="full_width">Would you like this donation to automatically repeat each month?</label>
+                            <div class="mt-radio-list custom_radio">
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios22" value="yes">Yes
+                             <span></span>
+                                </label>
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios23" value="no" checked="">
+                                    No
+                              <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="single_detail">
+                            <label class="full_width">Would you like this donation to automatically repeat each month?</label>
+                            <div class="mt-radio-list custom_radio">
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios22" value="yes" checked="">Yes
+                             <span></span>
+                                </label>
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios23" value="no">
+                                    No
+                              <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="single_detail">
+                            <label class="full_width">Would you like this donation to automatically repeat each month?</label>
+                            <div class="mt-radio-list custom_radio">
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios22" value="yes">Yes
+                             <span></span>
+                                </label>
+                                <label class="mt-radio mt-radio-line">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios23" value="no" checked="">
+                                    No
+                              <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject sbold uppercase">Donation History</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dataTables_filter1 pull-right1">
+                        <label>
+                            <input type="search" class="form-control input-sm input-small input-inline" placeholder="Search" id="txtsearch" value=""></label>
+                    </div>
+                </div>
+            </div>
+            <div id="lstdiv">@Html.Action("GetDonationHistoryList", "Donation")</div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hdndonationid" name="hdndonationid" value="@Model.FirstOrDefault().DonationId" />
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).on("click", "input[type='radio']", function () {
+        var strstatus = $(this).val();
+        var sturl = '@Url.Action("DonationByRecurringID")';
+
+        $.ajax({
+            url: sturl,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                'ID': $("#hdndonationid").val(),
+                'status': strstatus
+            },
+            success: function (data) {
+                if (data == "success") {
+                    alert("Saved successfully !");
+                } else {
+                   
+                    alert(data);
+                    return false;
+
+                }
+            },
+            error: function (e) {
+                
+                alert("An error has occured ! ");
+                return false;
+            }
+        });
+
+    });
+    $(document).on("click", "#lstfirstpage", function () {
+
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=1" +
+        "&PageSize=" + 1 + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+    });
+    $(document).on("click", "#lstprveiouspage", function () {
+
+        var pageno = parseInt($("#PageNo").val()) - 1;
+        if (parseInt(pageno) == 0) {
+            pageno = 1;
+        }
+
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+         "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+
+    });
+    $(document).on("click", "#lstnextpage", function () {
+
+        var pageno = parseInt($("#PageNo").val()) + 1;
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+        "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+
+    });
+    $(document).on("click", "#lstlastpage", function () {
+
+        var pageno = $(this).attr("data-page");
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+       "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+    });
+    $(document).on("click", "#lstpageclick", function () {
+
+        var pageno = $(this).attr("data-page");
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + pageno +
+       "&PageSize=" + $("#selectrecords").val() + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+    });
+
+    $(document).on("keyup", "#txtsearch", function (e) {
+
+        var PageSize = "";
+        if ($("#selectrecords").length > 0) {
+            PageSize = $("#selectrecords").val();
+        } else {
+            PageSize = $("#PageSize").val();
+        }
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+        "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+    });
+    $(document).on("change", "#selectrecords", function () {
+
+        if ($("#selectrecords").length > 0) {
+            PageSize = $("#selectrecords").val();
+        } else {
+            PageSize = $("#PageSize").val();
+        }
+        var querystring = "?serachword=" + $("#txtsearch").val() + "&PageNo=" + $("#PageNo").val() +
+      "&PageSize=" + PageSize + "&SortColumn=" + $("#SortColumn").val() + "&SortOrder=" + $("#SortOrder").val();
+        $("#lstdiv").load("/Donation/GetDonationHistoryList" + querystring, function () {
+
+        });
+        $("#selectrecords").val(PageSize);
+    });
+</script>

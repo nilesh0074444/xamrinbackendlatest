@@ -1,0 +1,64 @@
+﻿@model List<SDCOC.Models.MeesageNotications>
+
+<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" id="newmessagesnotifcations">
+    <i class="icon-envelope-open"></i>
+    <span class="badge badge-default">@Model.Count</span>
+</a>
+<ul class="dropdown-menu">
+    <li class="external">
+        <h3>You have
+                                           
+            <span class="bold">@Model.Count New</span> Messages</h3>
+        <a href="@Url.Action("Index", "Messages")">View All</a>
+    </li>
+    <li>
+        <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+            @if (Model.Count == 0)
+            {
+
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="message">You have no new messages ! </span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                foreach(var i in Model)
+                {
+                    string MessageText = i.MessageText;
+                    if (MessageText.Length > 100)
+                    {
+                        MessageText = MessageText.Substring(0, 100) + "...";
+                    }
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="photo">
+                            @if (!string.IsNullOrEmpty(Convert.ToString(Model.FirstOrDefault().ProfileImage)))
+                            {
+
+                                string imgpath = "../../Images/UserImages/ProfileImages/" + i.ProfileImage;
+                                <img src="@imgpath" alt="" class="img-circle" />
+                            }
+                            else
+                            {
+                                <img src="~/Images/UserImages/ProfileImages/no-image.png" class="img-circle" />
+                            }
+                            
+                        </span>
+                        <span class="subject">
+                            <span class="from">@i.Firstname @i.Lastname </span>
+                            @if(i.MessageReceivedDate != null)
+                            {
+                            <span class="time">                                
+                                @SDCOC.Models.Common.TimeAgo(Convert.ToDateTime(i.MessageReceivedDate))</span>
+                            }
+                        </span>
+                        <span class="message">@MessageText</span>
+                    </a>
+                </li>
+                }
+          }
+                   </ul>
+    </li>
+</ul>

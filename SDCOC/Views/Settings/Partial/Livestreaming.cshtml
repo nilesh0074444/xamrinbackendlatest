@@ -1,0 +1,129 @@
+﻿<style>
+     span.label.label-danger {
+  
+    margin-top: 10px;
+}
+</style>
+<form>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Facebook Link</label>
+                <input class="form-control" type="text" id="txtFacebooklink1" name="txtFacebooklink1" value="@ViewBag.Livestream_FacebookLink">
+                <span class="label label-danger">eg.</span>
+                <span>http://facebook.com</span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Youtube Link</label>
+                <input class="form-control" type="text" id="txtYoutubeLink" name="txtYoutubeLink" value="@ViewBag.Livestream_YoutubeLink">
+                <span class="label label-danger">eg.</span>
+                <span>http://youtube.com</span>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-actions">
+                @*<a href="/Users" class="black-border pull-right">CANCEL</a>*@
+                @*<input type="submit" class="btn blue-border uppercase pull-right" value="Save">*@
+                
+                <a href="javascript:void(0);" class="btn blue-border uppercase pull-right" id="btnaddlivestreaming">Save</a>
+                 <a href="javascript:void(0);" id="btnlivestreamingCancel" class="black-border pull-right clear1">CANCEL</a>
+            </div>
+        </div>
+        <div class="col-sm-6" id="successmsg2" style="display: none;">
+            <div class="form-group" >
+                <div class="alert alert-success" style="width: 227px; background-color: #fdfdfd; border-color: #fdfdfd;">
+                    <strong>Save successfully !</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).on("click", "#btnlivestreamingCancel", function () {
+        window.location = "/Dashboard/Index";
+        //$("#txtFacebooklink1").val("");
+        //$("#txtYoutubeLink").val("");
+        //$("#successmsg2").hide();
+
+    });
+    function validatelivestreaminglinks(str) {
+        var tarea = str;
+        var tarea_regex = /^(http|https)/;
+        return tarea_regex.test(String(tarea).toLowerCase());
+    }
+    $(document).on("click", "#btnaddlivestreaming", function () {
+        var txtFacebooklink1 = $("#txtFacebooklink1").val().trim();
+        var txtYoutubeLink = $("#txtYoutubeLink").val().trim();
+       
+        if (txtFacebooklink1 == "" || txtYoutubeLink == "") {
+            if (txtFacebooklink1 == "") {
+                $("#txtFacebooklink1").addClass("error1");
+            } else {
+                $("#txtFacebooklink1").removeClass("error1");
+            }
+            if (txtYoutubeLink == "") {
+                $("#txtYoutubeLink").addClass("error1");
+            } else {
+                $("#txtYoutubeLink").removeClass("error1");
+            }
+
+            return false;
+        }
+        else {
+            if (validatelivestreaminglinks($("#txtFacebooklink1").val()) && validatelivestreaminglinks($("#txtYoutubeLink").val())) {
+                var sturl = '@Url.Action("SaveLivestreaming")';
+
+                $.ajax({
+                    url: sturl,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        'FacebookLink': $("#txtFacebooklink1").val(),
+                        'YoutubeLink': $("#txtYoutubeLink").val()
+
+                    },
+                    success: function (data) {
+                        if (data == "success") {
+
+                            $("#successmsg2").show();
+
+                        } else {
+
+                            alert(data);
+                            return false;
+
+                        }
+                    },
+                    error: function (e) {
+
+                        alert("An error has occured ! ");
+                        return false;
+                    }
+                });
+            } else {
+                if (!validatesociallinks($("#txtFacebooklink1").val())) {
+                    $("#txtFacebooklink1").addClass("error1");
+                }
+                if (!validatesociallinks($("#txtYoutubeLink").val())) {
+                    $("#txtYoutubeLink").addClass("error1");
+                }
+                return false;
+            }
+        }
+
+
+    });
+    $(document).on("focus", "#txtYoutubeLink", function () {
+        $("#txtYoutubeLink").removeClass("error1");
+    });
+    $(document).on("focus", "#txtFacebooklink1", function () {
+        $("#txtFacebooklink1").removeClass("error1");
+    });
+
+
+    
+</script>

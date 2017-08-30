@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="alianwindows_sdcocModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="alianwindows_sdcocModelStoreContainer">
+    <EntitySet Name="ScheduleCategory" EntityType="alianwindows_sdcocModel.Store.ScheduleCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_AdminUser" EntityType="alianwindows_sdcocModel.Store.tbl_AdminUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Connect" EntityType="alianwindows_sdcocModel.Store.tbl_Connect" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Donation" EntityType="alianwindows_sdcocModel.Store.tbl_Donation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_DonationHistory" EntityType="alianwindows_sdcocModel.Store.tbl_DonationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_MessageNotification" EntityType="alianwindows_sdcocModel.Store.tbl_MessageNotification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_MessageSubject" EntityType="alianwindows_sdcocModel.Store.tbl_MessageSubject" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Ministry_Assigned_Users" EntityType="alianwindows_sdcocModel.Store.tbl_Ministry_Assigned_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_MinistryInterests" EntityType="alianwindows_sdcocModel.Store.tbl_MinistryInterests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_NewsEvents" EntityType="alianwindows_sdcocModel.Store.tbl_NewsEvents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_OtherNotification" EntityType="alianwindows_sdcocModel.Store.tbl_OtherNotification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_PrayerRequest" EntityType="alianwindows_sdcocModel.Store.tbl_PrayerRequest" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Schedule" EntityType="alianwindows_sdcocModel.Store.tbl_Schedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Setting" EntityType="alianwindows_sdcocModel.Store.tbl_Setting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Subjects" EntityType="alianwindows_sdcocModel.Store.tbl_Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Users" EntityType="alianwindows_sdcocModel.Store.tbl_Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ScheduleCategory">
+    <Key>
+      <PropertyRef Name="ScheduleTypeId" />
+    </Key>
+    <Property Name="ScheduleTypeId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleType" Type="nvarchar" MaxLength="67" />
+    <Property Name="ISdeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_AdminUser">
+    <Key>
+      <PropertyRef Name="AdminUserId" />
+    </Key>
+    <Property Name="AdminUserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="367" />
+    <Property Name="Password" Type="nvarchar" MaxLength="367" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="367" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="367" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="ProfilePicture" Type="nvarchar" MaxLength="367" />
+    <Property Name="ResetCode" Type="nvarchar" MaxLength="67" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Connect">
+    <Key>
+      <PropertyRef Name="ConnectId" />
+    </Key>
+    <Property Name="ConnectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="MessageText" Type="nvarchar(max)" />
+    <Property Name="ReceivedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Donation">
+    <Key>
+      <PropertyRef Name="DonationId" />
+    </Key>
+    <Property Name="DonationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="167" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="167" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="167" />
+    <Property Name="DonationAmount" Type="decimal" Scale="2" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="167" />
+    <Property Name="IsAutoRecurring" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DonationHistory">
+    <Key>
+      <PropertyRef Name="DonationHistoryId" />
+    </Key>
+    <Property Name="DonationHistoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DonationId" Type="bigint" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="167" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="167" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="167" />
+    <Property Name="DonatedAmount" Type="decimal" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="167" />
+    <Property Name="CardHolderName" Type="nvarchar" MaxLength="167" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="167" />
+    <Property Name="CVVCode" Type="nvarchar" MaxLength="67" />
+    <Property Name="ExpirationDate" Type="nvarchar" MaxLength="67" />
+    <Property Name="DonationDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_MessageNotification">
+    <Key>
+      <PropertyRef Name="MessageNotificationId" />
+    </Key>
+    <Property Name="MessageNotificationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MessageReceivedUserId" Type="bigint" />
+    <Property Name="MessageSubjectId" Type="bigint" />
+    <Property Name="MessageText" Type="nvarchar(max)" />
+    <Property Name="IsReaded" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="MessageReceivedDate" Type="datetime" />
+    <Property Name="MessageSendUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbl_MessageSubject">
+    <Key>
+      <PropertyRef Name="MessageSubjectId" />
+    </Key>
+    <Property Name="MessageSubjectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectId" Type="bigint" />
+    <Property Name="MessageFrom" Type="bigint" />
+    <Property Name="MessageTo" Type="bigint" />
+    <Property Name="MessageText" Type="nvarchar(max)" />
+    <Property Name="MessageSendDate" Type="datetime" />
+    <Property Name="IsReaded" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Ministry_Assigned_Users">
+    <Key>
+      <PropertyRef Name="Assign_MinistryId" />
+    </Key>
+    <Property Name="Assign_MinistryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FK_User_ID" Type="bigint" />
+    <Property Name="FK_MinistryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbl_MinistryInterests">
+    <Key>
+      <PropertyRef Name="MinistryId" />
+    </Key>
+    <Property Name="MinistryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MinistryTitle" Type="nvarchar" MaxLength="167" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_NewsEvents">
+    <Key>
+      <PropertyRef Name="NewsEventId" />
+    </Key>
+    <Property Name="NewsEventId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="367" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Eventdate" Type="datetime" />
+    <Property Name="EventTime" Type="nvarchar" MaxLength="67" />
+    <Property Name="EventImage" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_OtherNotification">
+    <Key>
+      <PropertyRef Name="OtherNotificationId" />
+    </Key>
+    <Property Name="OtherNotificationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DisplayText" Type="nvarchar" MaxLength="167" />
+    <Property Name="NotificationReceivedUserId" Type="bigint" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="67" />
+    <Property Name="IsReaded" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="NotificationReceivedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_PrayerRequest">
+    <Key>
+      <PropertyRef Name="PrayerRequestId" />
+    </Key>
+    <Property Name="PrayerRequestId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="67" />
+    <Property Name="PrayerRequestText" Type="nvarchar(max)" />
+    <Property Name="ReceivedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="167" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EventDate" Type="datetime" />
+    <Property Name="EventStartTime" Type="nvarchar" MaxLength="67" />
+    <Property Name="EventEndTime" Type="nvarchar" MaxLength="67" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ScheduleCategory_ID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbl_Setting">
+    <Key>
+      <PropertyRef Name="SettingId" />
+    </Key>
+    <Property Name="SettingId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ChurchAddress" Type="nvarchar(max)" />
+    <Property Name="SocialConnect_FacebookLink" Type="nvarchar" MaxLength="367" />
+    <Property Name="SocialConnect_TwitterLink" Type="nvarchar" MaxLength="367" />
+    <Property Name="Livestream_FacebookLink" Type="nvarchar" MaxLength="367" />
+    <Property Name="Livestream_YoutubeLink" Type="nvarchar" MaxLength="367" />
+  </EntityType>
+  <EntityType Name="tbl_Subjects">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="167" />
+    <Property Name="SubjectUserId" Type="bigint" />
+    <Property Name="SubjectCreatedDate" Type="datetime" />
+    <Property Name="SubjectCreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="367" />
+    <Property Name="Password" Type="nvarchar" MaxLength="367" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="367" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="367" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="67" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsReceiveEmailSMS" Type="bit" />
+    <Property Name="ReceivedOTP" Type="nvarchar" MaxLength="67" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ProfileImage" Type="nvarchar(max)" />
+  </EntityType>
+  <Function Name="Delete_Assigned_Unassigned_tbl_MinistryInterests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Get_Assigned_Unassigned_tbl_MinistryInterests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Get_Dashboard_Connect_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_Dashboard_PrayerRequest_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_Dashboard_Total_Donation_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_Dashboard_Total_Users_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_Dashboard_Upcoming_NewsEvents_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_DonationautoRecurrringeditgetlastpaydetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_EditDonationDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DonationID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAll_ScheduleCategory_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_Connect_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_Donation_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_DonationHistory_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_MessageNotification_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAll_tbl_MinistryInterests_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_NewsEvents_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_OtherNotification_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAll_tbl_PrayerRequest_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_Schedule_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_Subjects_MessagesOrderBY_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAll_tbl_Users_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="serachword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="nvarchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Update_tbl_MessageNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Update_tbl_OtherNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+</Schema>

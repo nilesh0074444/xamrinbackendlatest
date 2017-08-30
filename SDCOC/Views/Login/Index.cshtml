@@ -1,0 +1,217 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml"; 
+}
+
+
+<!-- BEGIN LOGIN FORM -->
+
+
+@using (Ajax.BeginForm("CheckLoginAuthentication", "Login", new AjaxOptions { OnBegin = "return fnLoginValidation();", OnSuccess = "SuccessLogin(data);", HttpMethod = "POST" }, new { id = "frmLogin" }))
+{
+
+    <h3 class="form-title">Welcome</h3>
+    <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+        <span>Enter valid username and password. </span>
+    </div>
+    <div class="alert alert-success display-hide">
+        <strong>Logged In Successfully..</strong>
+    </div>
+    if (!string.IsNullOrEmpty(Convert.ToString(@ViewBag.Logout)))
+    {
+    <div class="Logout Logout-success">
+        <strong>@ViewBag.Logout</strong>
+    </div>
+    }
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Username</label>
+        <div class="input-icon">
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email*" name="username" value="" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="input-icon">
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password*" name="password" value="" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <label class="rememberme mt-checkbox mt-checkbox-outline">
+            <input type="checkbox" name="remember" value="1" />
+            Remember me           
+            <span></span>
+        </label>
+        <a href="javascript:void(0);" class="forgot_pass" id="forget-password">Forgot Password?</a>
+        <button type="submit" class="btn green pull-right">Login </button>
+    </div>
+     
+}
+<!-- END LOGIN FORM -->
+
+@*<form class="forget-form" action="index.html" method="post" novalidate="novalidate">*@
+@using (Ajax.BeginForm("CheckForgetPassword", "Login", new AjaxOptions { OnBegin = "return fnForgetPasswordValidation();", OnSuccess = "SuccessForgetPassword(data);", HttpMethod = "POST" }, new { id = "frmForgetPassword" }))
+{
+    <h3 class="form-title">Forget Password ?</h3>
+    <p>Enter your e-mail address below to reset your password. </p>
+    
+    <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+        <span id="spnforgetfail"></span>
+    </div>
+    <div class="alert alert-success display-hide login-sucesss ">
+        <strong>Email is sent. Please check your Email..</strong>
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email">
+    </div>
+    <div class="form-actions">
+        <button type="button" id="back-btn" class="btn red btn-outline">Back</button>
+        <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
+    </div>
+}
+
+
+<script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        window.setTimeout(function () {
+            //App.stopPageLoading();
+            $("#frmLogin .Logout-success").hide();
+        }, 3000);
+    });
+
+    function fnLoginValidation() {
+        // validation
+        App.startPageLoading({ animate: true });
+
+
+    }
+    function SuccessLogin(data) {
+        if (data.trim() == "success") {
+            $("#frmLogin .alert-danger").hide();
+            $("#frmLogin .alert-success").show();
+
+            window.setTimeout(function () {
+                App.stopPageLoading();
+                $("#frmLogin .alert-success").hide();
+            }, 2000);
+
+            window.location.href = '@Url.Action("Index", "Dashboard")';
+        }
+        else if (data.trim() == "fail") {
+            $("#frmLogin .alert-danger").show();
+            $("#frmLogin .alert-success").hide();
+            window.setTimeout(function () {
+                App.stopPageLoading();
+                $("#frmLogin .alert-danger").hide();
+            }, 2000);
+        }
+
+    }
+
+    function fnForgetPasswordValidation() {
+        //alert("fnForgetPasswordValidation");
+        App.startPageLoading({ animate: true });
+    }
+    //added binal 22-aug-2017
+    function SuccessForgetPassword(data) {
+
+        if (data.trim() == "invalidemail") {
+            $("#spnforgetfail").text("Email does not exist");
+            $("#frmForgetPassword .alert-danger").show();
+            $("#frmForgetPassword .alert-success").hide();
+            window.setTimeout(function () {
+                App.stopPageLoading();
+                $("#frmForgetPassword .alert-danger").hide();
+            }, 2000);
+        }
+        else if (data.trim() == "wrong") {
+            $("#spnforgetfail").text("Something Wrong");
+            $("#frmForgetPassword .alert-danger").show();
+            $("#frmForgetPassword .alert-success").hide();
+            window.setTimeout(function () {
+                App.stopPageLoading();
+                $("#frmForgetPassword .alert-danger").hide();
+            }, 2000);
+
+        }
+        else if (data.trim() == "success") {
+            $("#frmForgetPassword .alert-danger").hide();
+            $("#frmForgetPassword .alert-success").show();
+           
+            window.setTimeout(function () {
+                App.stopPageLoading();
+                $("#frmForgetPassword .alert-success").hide();
+                $("#frmForgetPassword input[type='text']").val("");
+                window.location = "/Login/Index";
+            }, 5000);
+        }
+
+    }
+
+    $(function () {
+        // Setup form validation on Login form
+        $("#frmLogin").validate({
+            // Specify the validation rules
+            rules: {
+                username: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+
+            // Specify the validation error messages
+            messages: {
+                username: {
+                    required: "please provide an email"
+                },
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                email: "Please enter a valid email address"
+            },
+
+            success: function (label) {
+                //alert("label = " + label);
+            },
+        });
+
+        // Setup form validation on Forget Password form
+        $("#frmForgetPassword").validate({
+            // Specify the validation rules
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+
+            // Specify the validation error messages
+            messages: {
+                email: "Please enter a valid email address"
+            },
+
+            success: function (label) {
+                //alert("label = " + label);
+            },
+        });
+
+    });
+
+    $("#frmLogin input").keypress(function (event) {
+        if (event.which == 13) {
+            //event.preventDefault();
+            $("#frmLogin").submit();
+        }
+    });
+
+</script>
