@@ -367,6 +367,10 @@ table.user td:last-child {
     width: 150px;
 }
 
+a.trash {
+    margin: 0 12px;
+}
+
 .dataTables_filter input.form-control.input-sm.input-small.input-inline {
     width: 310px !important;
     height: 35px;
@@ -482,7 +486,6 @@ a.blue-border.no_margin {
         margin-right: 10px;
         font-size: 14px;
         color: #666;
-		margin-bottom: 5px;
     }
 
         .schedule_detail_main ul li i {
@@ -580,11 +583,7 @@ a.blue-border.right {
     }
 
 table.user th:first-child {
-    width: auto !important;
-	min-width: 1px;
-}
-table.user thead tr th{
-	min-width: 1px;
+    width: 50px !important;
 }
 
 #Ministries a.btn.blue-border {
@@ -727,16 +726,16 @@ input#txtsearch {
 .upcoming_event .schedule_desc p {
     margin-bottom: 10px;
     font-size: 13px;
+    /*letter-spacing: -1px;*/
     color: #666666;
     min-height: 36px;
     max-height: 36px;
+    overflow: hidden;
 }
 
 .upcoming_event .schedule_detail_main {
     border: 1px solid #e7ecf1;
     margin-bottom: 10px;
-	width: 100%;
-    display: inline-block;
 }
 
 .contents {

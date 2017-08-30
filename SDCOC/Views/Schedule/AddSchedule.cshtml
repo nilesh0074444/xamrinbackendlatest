@@ -267,7 +267,20 @@
         }
         else {
             
-            return true;
+            if (txtstarttime == txtendtime) {
+                $("#txtstarttime").addClass("error1");
+                $("#txtendtime").addClass("error1");
+                return false;
+            }
+
+            else if (stt > endt) {
+                $("#txtstarttime").addClass("error1");
+                $("#txtendtime").addClass("error1");
+                return false;
+            }
+            else {
+                return true;
+            }
 
 
 
